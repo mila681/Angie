@@ -3,33 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bleed &amp; Bloom — Market Research &amp; Strategic Positioning</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Market Research &mdash; For Angie</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Angie pink palette */
-    --ink: #1A1A1A;
-    --ink-soft: #3D3D3D;
-    --parchment: #FDF4F2;
-    --velvet: #F4D8D5;
-    --oxblood: #B8625F;
-    --rose-gold: #D4A59A;
-    --rose-gold-deep: #B8857A;
-    --champagne: #D4A59A;
-    --lilac: #E8D5D0;
-    --moss: #7A8B6B;
-    --candle: #D4A59A;
-    --body-text: #4A4A4A;
-    --heading: #1A1A1A;
+    --blush: #F4D8D5;
     --blush-soft: #F9E6E3;
     --blush-pale: #FDF4F2;
-    --divider: #E8D5D0;
+    --rose-metallic: #D4A59A;
+    --rose-deep: #B8857A;
+    --ink: #1A1A1A;
+    --ink-soft: #3D3D3D;
+    --body-text: #4A4A4A;
     --cream: #FAFAF8;
     --white: #FFFFFF;
     --warm-gray: #8A8582;
+    --divider: #E8D5D0;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Inter', sans-serif;
@@ -40,577 +33,25 @@
     overflow-x: hidden;
   }
 
-  /* Soft blush ambient gradient */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background:
       radial-gradient(circle at 20% 30%, rgba(244, 216, 213, 0.35) 0%, transparent 40%),
-      radial-gradient(circle at 80% 70%, rgba(212, 165, 154, 0.18) 0%, transparent 45%),
-      radial-gradient(circle at 50% 100%, rgba(249, 230, 227, 0.25) 0%, transparent 50%);
+      radial-gradient(circle at 80% 70%, rgba(212, 165, 154, 0.18) 0%, transparent 45%);
     pointer-events: none;
     z-index: 0;
   }
 
-  /* Subtle grain */
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
-    opacity: 0.015;
-    pointer-events: none;
-    z-index: 1;
-    mix-blend-mode: multiply;
-  }
-
   .container {
-    max-width: 1100px;
+    max-width: 980px;
     margin: 0 auto;
-    padding: 80px 40px;
+    padding: 80px 48px 100px;
     position: relative;
     z-index: 2;
   }
 
-  /* Header */
-  .hero {
-    text-align: center;
-    padding: 60px 0 100px;
-    border-bottom: 1px solid rgba(184, 133, 122, 0.3);
-    margin-bottom: 80px;
-  }
-
-  .eyebrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--rose-gold-deep);
-    margin-bottom: 32px;
-    font-weight: 500;
-  }
-
-  .wordmark {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(56px, 9vw, 104px);
-    font-weight: 300;
-    font-style: italic;
-    line-height: 0.95;
-    color: var(--heading);
-    margin-bottom: 24px;
-    letter-spacing: -0.02em;
-  }
-
-  .wordmark .amp {
-    color: var(--rose-gold-deep);
-    font-style: normal;
-    font-weight: 300;
-    margin: 0 0.1em;
-  }
-
-  .subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-style: italic;
-    color: var(--rose-gold-deep);
-    font-weight: 300;
-    letter-spacing: 0.02em;
-  }
-
-  .meta {
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: rgba(26, 26, 26, 0.5);
-    margin-top: 40px;
-  }
-
-  /* Section styles */
-  section {
-    margin-bottom: 100px;
-    scroll-margin-top: 40px;
-  }
-
-  .section-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
-    font-style: italic;
-    color: var(--rose-gold-deep);
-    letter-spacing: 0.3em;
-    margin-bottom: 12px;
-  }
-
-  h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 56px);
-    font-weight: 300;
-    color: var(--heading);
-    line-height: 1.1;
-    margin-bottom: 40px;
-    letter-spacing: -0.01em;
-  }
-
-  h2 em {
-    color: var(--rose-gold-deep);
-    font-weight: 300;
-  }
-
-  h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--heading);
-    margin-bottom: 16px;
-    margin-top: 32px;
-  }
-
-  h4 {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--rose-gold-deep);
-    font-weight: 500;
-    margin-bottom: 12px;
-  }
-
-  p {
-    font-size: 16px;
-    color: var(--body-text);
-    margin-bottom: 20px;
-    max-width: 72ch;
-  }
-
-  p.lead {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    font-style: italic;
-    color: var(--ink);
-    line-height: 1.5;
-    margin-bottom: 40px;
-    font-weight: 300;
-  }
-
-  strong {
-    color: var(--heading);
-    font-weight: 600;
-  }
-
-  em {
-    color: var(--rose-gold-deep);
-    font-style: italic;
-  }
-
-  /* Market size stats */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1px;
-    background: rgba(184, 133, 122, 0.3);
-    margin: 60px 0;
-    border: 1px solid rgba(184, 133, 122, 0.3);
-  }
-
-  .stat {
-    padding: 40px 30px;
-    background: rgba(253, 244, 242, 0.9);
-    text-align: center;
-  }
-
-  .stat-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 52px;
-    font-weight: 300;
-    color: var(--heading);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .stat-number .unit {
-    font-size: 24px;
-    color: var(--rose-gold-deep);
-  }
-
-  .stat-label {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: rgba(26, 26, 26, 0.7);
-    font-weight: 500;
-  }
-
-  /* Competitor cards */
-  .competitors {
-    display: grid;
-    gap: 2px;
-    background: rgba(184, 133, 122, 0.25);
-    border: 1px solid rgba(184, 133, 122, 0.25);
-    margin-top: 40px;
-  }
-
-  .competitor {
-    background: rgba(253, 244, 242, 0.9);
-    padding: 48px;
-    transition: background 0.6s ease;
-  }
-
-  .competitor:hover {
-    background: rgba(244, 216, 213, 0.6);
-  }
-
-  .competitor-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 8px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .competitor-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--heading);
-    letter-spacing: -0.01em;
-  }
-
-  .competitor-tag {
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--rose-gold-deep);
-    padding: 6px 14px;
-    border: 1px solid rgba(184, 133, 122, 0.5);
-    border-radius: 2px;
-  }
-
-  .competitor-positioning {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 18px;
-    color: var(--rose-gold-deep);
-    margin-bottom: 24px;
-  }
-
-  .competitor-stats {
-    display: flex;
-    gap: 32px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    font-size: 13px;
-    color: rgba(26, 26, 26, 0.7);
-  }
-
-  .competitor-stats span strong {
-    display: block;
-    color: var(--heading);
-    font-size: 15px;
-    font-weight: 500;
-    margin-top: 2px;
-  }
-
-  .swot-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 24px;
-  }
-
-  .swot-cell {
-    padding: 20px;
-    border: 1px solid rgba(184, 133, 122, 0.3);
-    background: rgba(253, 244, 242, 0.6);
-  }
-
-  .swot-cell ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .swot-cell li {
-    font-size: 14px;
-    color: var(--body-text);
-    padding: 6px 0;
-    padding-left: 20px;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .swot-cell li::before {
-    content: '•';
-    position: absolute;
-    left: 4px;
-    color: var(--rose-gold-deep);
-  }
-
-  /* Gap analysis */
-  .gaps {
-    display: grid;
-    gap: 1px;
-    background: rgba(184, 133, 122, 0.3);
-    border: 1px solid rgba(184, 133, 122, 0.3);
-    margin-top: 40px;
-  }
-
-  .gap {
-    background: rgba(253, 244, 242, 0.9);
-    padding: 40px 48px;
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 32px;
-    align-items: start;
-  }
-
-  .gap-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 56px;
-    font-weight: 300;
-    color: var(--rose-gold-deep);
-    font-style: italic;
-    line-height: 1;
-  }
-
-  .gap-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--heading);
-    margin-bottom: 12px;
-  }
-
-  .gap-owners {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--rose-gold-deep);
-    margin-bottom: 16px;
-    font-weight: 500;
-  }
-
-  /* Positioning map */
-  .positioning-map {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1/1;
-    max-width: 640px;
-    margin: 60px auto;
-    border: 1px solid rgba(184, 133, 122, 0.4);
-    background:
-      radial-gradient(circle at center, rgba(184, 133, 122, 0.08) 0%, transparent 70%);
-  }
-
-  .axis-label {
-    position: absolute;
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--rose-gold-deep);
-    font-weight: 500;
-  }
-
-  .axis-label.top { top: 20px; left: 50%; transform: translateX(-50%); }
-  .axis-label.bottom { bottom: 20px; left: 50%; transform: translateX(-50%); }
-  .axis-label.left { left: 20px; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: center; }
-  .axis-label.right { right: 20px; top: 50%; transform: translateY(-50%) rotate(90deg); transform-origin: center; }
-
-  .positioning-map::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 15%;
-    right: 15%;
-    height: 1px;
-    background: rgba(184, 133, 122, 0.4);
-  }
-
-  .positioning-map::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 15%;
-    bottom: 15%;
-    width: 1px;
-    background: rgba(184, 133, 122, 0.4);
-  }
-
-  .map-point {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    color: var(--ink-soft);
-    font-style: italic;
-    white-space: nowrap;
-  }
-
-  .map-point::before {
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: var(--rose-gold-deep);
-    border-radius: 50%;
-    margin-right: 8px;
-    vertical-align: middle;
-    opacity: 0.7;
-  }
-
-  .map-point.bb {
-    color: var(--heading);
-    font-size: 18px;
-    font-weight: 500;
-  }
-
-  .map-point.bb::before {
-    background: var(--oxblood);
-    width: 12px;
-    height: 12px;
-    box-shadow: 0 0 20px rgba(184, 98, 95, 0.5);
-    opacity: 1;
-  }
-
-  /* Divider */
-  .divider {
-    text-align: center;
-    margin: 80px 0;
-    color: var(--rose-gold-deep);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    font-style: italic;
-    opacity: 0.6;
-    letter-spacing: 0.5em;
-  }
-
-  /* Pull quote */
-  .pullquote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 4vw, 40px);
-    font-style: italic;
-    font-weight: 300;
-    color: var(--oxblood);
-    text-align: center;
-    padding: 60px 40px;
-    border-top: 1px solid rgba(184, 133, 122, 0.4);
-    border-bottom: 1px solid rgba(184, 133, 122, 0.4);
-    margin: 60px 0;
-    line-height: 1.3;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Recommendation card */
-  .recommendation {
-    background: linear-gradient(135deg, rgba(244, 216, 213, 0.8) 0%, rgba(253, 244, 242, 0.95) 100%);
-    border: 1px solid rgba(184, 133, 122, 0.4);
-    padding: 60px;
-    margin-top: 60px;
-  }
-
-  .recommendation h3 {
-    color: var(--oxblood);
-    margin-top: 0;
-  }
-
-  /* Table of contents */
-  .toc {
-    background: rgba(253, 244, 242, 0.7);
-    border: 1px solid rgba(184, 133, 122, 0.3);
-    padding: 32px 40px;
-    margin-bottom: 80px;
-  }
-
-  .toc-title {
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--rose-gold-deep);
-    margin-bottom: 16px;
-    font-weight: 500;
-  }
-
-  .toc ol {
-    list-style: none;
-    counter-reset: toc;
-  }
-
-  .toc li {
-    counter-increment: toc;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    padding: 8px 0;
-    color: var(--ink-soft);
-  }
-
-  .toc li::before {
-    content: counter(toc, upper-roman) '. ';
-    color: var(--rose-gold-deep);
-    font-style: italic;
-    margin-right: 12px;
-  }
-
-  .toc a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .toc a:hover {
-    color: var(--heading);
-  }
-
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 60px 0 40px;
-    border-top: 1px solid rgba(184, 133, 122, 0.3);
-    margin-top: 80px;
-  }
-
-  .footer-mark {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 20px;
-    color: var(--rose-gold-deep);
-    margin-bottom: 16px;
-  }
-
-  .footer-note {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: rgba(26, 26, 26, 0.5);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .container { padding: 60px 24px; }
-    .swot-grid { grid-template-columns: 1fr; }
-    .gap { grid-template-columns: 1fr; gap: 16px; }
-    .competitor { padding: 32px 24px; }
-    .recommendation { padding: 40px 24px; }
-  }
-
-  /* Print styles */
-  @media print {
-    body { background: white; color: black; }
-    body::before, body::after { display: none; }
-    .container { max-width: 100%; padding: 20px; }
-    h2, h3, .wordmark, .competitor-name, .gap-title, .stat-number { color: #1A1A1A !important; }
-    p, li { color: #3D3D3D !important; }
-    .stat, .competitor, .gap, .swot-cell, .toc, .recommendation {
-      background: white !important;
-      border: 1px solid #E8D5D0 !important;
-      break-inside: avoid;
-    }
-    .pullquote { color: #B8857A !important; break-inside: avoid; }
-    section { break-inside: avoid; }
-    h2 { break-after: avoid; }
-    .hero { break-after: page; }
-  }
   /* BACK BUTTON */
   .back-to-hub {
     position: fixed;
@@ -643,23 +84,641 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 16px;
-    line-height: 1;
     color: var(--rose-deep);
     transition: transform 0.2s ease;
   }
-  .back-to-hub:hover .back-to-hub-arrow {
-    transform: translateX(-3px);
+  .back-to-hub:hover .back-to-hub-arrow { transform: translateX(-3px); }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 60px 0 80px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 500;
+    margin-bottom: 36px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 8vw, 88px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .hero-title em { color: var(--rose-deep); }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--rose-deep);
+    max-width: 580px;
+    margin: 0 auto 28px;
+    line-height: 1.5;
+  }
+  .hero-meta {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--white);
+    border: 1px solid var(--divider);
+    padding: 32px 36px;
+    margin-bottom: 60px;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .toc-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 32px;
+    list-style: none;
+  }
+  .toc-list a {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 10px 0;
+    text-decoration: none;
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    transition: color 0.2s ease;
+  }
+  .toc-list a:hover { color: var(--rose-deep); }
+  .toc-roman {
+    font-size: 12px;
+    color: var(--rose-deep);
+    letter-spacing: 0.2em;
+    font-style: italic;
+    flex-shrink: 0;
+    min-width: 28px;
+  }
+
+  /* SECTION DIVIDER */
+  .section-divider {
+    text-align: center;
+    padding: 80px 0 60px;
+  }
+  .section-divider-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .section-divider-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .section-divider-title em { color: var(--rose-deep); }
+  .section-divider-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--rose-deep);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  .section-divider-line {
+    width: 40px;
+    height: 1px;
+    background: var(--rose-metallic);
+    margin: 28px auto;
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 32px;
+  }
+  .section-header-roman {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--rose-deep);
+    letter-spacing: 0.3em;
+    flex-shrink: 0;
+  }
+  .section-header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .section-header-title em { color: var(--rose-deep); }
+
+  /* ESSENCE */
+  .essence {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--rose-deep);
+    line-height: 1.45;
+    margin-bottom: 32px;
+    max-width: 62ch;
+  }
+
+  /* STATS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    padding: 24px 20px;
+    background: var(--white);
+    border: 1px solid var(--divider);
+    text-align: center;
+  }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-number .unit {
+    font-size: 22px;
+    color: var(--rose-deep);
+    font-weight: 300;
+  }
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* PROSE */
+  .prose { max-width: 62ch; }
+  .prose p {
+    font-size: 14.5px;
+    color: var(--body-text);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .prose p strong { color: var(--ink); font-weight: 600; }
+  .prose p em { color: var(--rose-deep); font-style: italic; }
+
+  /* COMPETITOR CARD */
+  .competitor {
+    background: var(--white);
+    border: 1px solid var(--divider);
+    padding: 32px 36px;
+    margin-bottom: 20px;
+  }
+  .competitor-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .competitor-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .competitor-tag {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    padding: 6px 12px;
+    border: 1px solid var(--rose-metallic);
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .competitor-essence {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--rose-deep);
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  .competitor-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--blush-pale);
+    margin-bottom: 18px;
+  }
+  .competitor-meta-label {
+    font-size: 8.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .competitor-meta-value {
+    font-size: 12px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .competitor-swot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .swot-cell {
+    padding: 14px 16px;
+    background: var(--cream);
+    border: 1px solid var(--divider);
+  }
+  .swot-cell-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .swot-cell ul { list-style: none; padding: 0; margin: 0; }
+  .swot-cell li {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    padding: 3px 0 3px 14px;
+    position: relative;
+  }
+  .swot-cell li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--rose-metallic);
+  }
+
+  /* ADJACENT */
+  .adjacent-group {
+    background: var(--white);
+    border: 1px solid var(--divider);
+    padding: 28px 32px;
+    margin-bottom: 16px;
+  }
+  .adjacent-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .adjacent-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1;
+  }
+  .adjacent-tag {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 500;
+  }
+  .adjacent-body p {
+    font-size: 13.5px;
+    color: var(--body-text);
+    line-height: 1.7;
+  }
+  .adjacent-body p strong { color: var(--ink); font-weight: 600; }
+  .adjacent-body p em { color: var(--rose-deep); font-style: italic; }
+
+  /* PATTERN CALLOUT */
+  .pattern-callout {
+    background: var(--blush-soft);
+    padding: 22px 28px;
+    margin-top: 20px;
+    border-left: 2px solid var(--rose-metallic);
+  }
+  .pattern-callout-label {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .pattern-callout p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+  }
+  .pattern-callout p em { color: var(--rose-deep); }
+
+  /* POSITIONING MAP */
+  .positioning-map {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding-top: 90%;
+    background: var(--white);
+    border: 1px solid var(--divider);
+  }
+  .map-axes { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+  .map-axes::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: var(--divider);
+  }
+  .map-axes::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    bottom: 15%;
+    width: 1px;
+    background: var(--divider);
+  }
+  .axis-label {
+    position: absolute;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+  }
+  .axis-label.top { top: 16px; left: 50%; transform: translateX(-50%); }
+  .axis-label.bottom { bottom: 16px; left: 50%; transform: translateX(-50%); }
+  .axis-label.left { left: 16px; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: center; }
+  .axis-label.right { right: 16px; top: 50%; transform: translateY(-50%) rotate(90deg); transform-origin: center; }
+  .map-point {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-style: italic;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .map-point::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: var(--rose-metallic);
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+  .map-point.you {
+    color: var(--ink);
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .map-point.you::before {
+    background: var(--rose-deep);
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 0 16px rgba(184, 133, 122, 0.55);
+    opacity: 1;
+  }
+  .map-insight {
+    background: var(--blush-soft);
+    padding: 22px 28px;
+    margin-top: 32px;
+    border-left: 2px solid var(--rose-metallic);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .map-insight strong { font-weight: 400; color: var(--rose-deep); }
+
+  /* GAP CARD */
+  .gap-card {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    padding: 24px 28px;
+    background: var(--white);
+    border: 1px solid var(--divider);
+    margin-bottom: 14px;
+    align-items: start;
+  }
+  .gap-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-style: italic;
+    color: var(--rose-deep);
+    line-height: 1;
+    padding-top: 4px;
+  }
+  .gap-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .gap-owners {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .gap-body {
+    font-size: 13.5px;
+    color: var(--body-text);
+    line-height: 1.7;
+  }
+  .gap-body strong { color: var(--ink); font-weight: 600; }
+  .gap-body em { color: var(--rose-deep); font-style: italic; }
+
+  /* WEDGE */
+  .wedge {
+    background: var(--white);
+    border: 1px solid var(--rose-metallic);
+    padding: 40px 44px;
+    position: relative;
+  }
+  .wedge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rose-metallic) 0%, var(--rose-deep) 100%);
+  }
+  .wedge-block {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .wedge-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .wedge-block-label {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .wedge-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .wedge-block h3 em { color: var(--rose-deep); }
+  .wedge-block p {
+    font-size: 14px;
+    color: var(--body-text);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+  .wedge-block p:last-child { margin-bottom: 0; }
+  .wedge-block p strong { color: var(--ink); font-weight: 600; }
+  .wedge-block p em { color: var(--rose-deep); font-style: italic; }
+  .wedge-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--rose-deep);
+    line-height: 1.5;
+    padding: 18px 22px;
+    background: var(--blush-pale);
+    border-left: 2px solid var(--rose-metallic);
+    margin-top: 14px;
+  }
+
+  /* PULL QUOTE */
+  .pullquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3.5vw, 34px);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--rose-deep);
+    text-align: center;
+    padding: 60px 40px;
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+    margin: 60px 0;
+    line-height: 1.4;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pullquote em { color: var(--ink); font-weight: 400; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding-top: 60px;
+    margin-top: 60px;
+    border-top: 1px solid var(--divider);
+  }
+  .footer-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--rose-deep);
+    margin-bottom: 12px;
+  }
+  .footer-note {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  @media (max-width: 820px) {
+    .container { padding: 48px 20px 80px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .competitor-meta { grid-template-columns: 1fr 1fr; }
+    .competitor-swot { grid-template-columns: 1fr; }
+    .toc-list { grid-template-columns: 1fr; }
+    .gap-card { grid-template-columns: 1fr; gap: 12px; padding: 20px 22px; }
+    .gap-number { font-size: 24px; padding-top: 0; }
+    .wedge { padding: 28px 24px; }
+    .section-divider-title { font-size: 36px; }
   }
   @media print {
     .back-to-hub { display: none; }
-  }
-  @media (max-width: 600px) {
-    .back-to-hub {
-      top: 12px;
-      left: 12px;
-      padding: 8px 14px 8px 11px;
-      font-size: 9px;
-    }
+    body { background: white; }
+    body::before { display: none; }
+    .container { max-width: 100%; padding: 20px; }
+    .competitor, .adjacent-group, .gap-card, .wedge, .toc { page-break-inside: avoid; break-inside: avoid; }
   }
 </style>
 </head>
@@ -669,497 +728,574 @@
   <span class="back-to-hub-arrow">&larr;</span>
   <span>Hub</span>
 </a>
+
 <div class="container">
 
 <!-- HERO -->
 <header class="hero">
-  <div class="eyebrow">Market Research &middot; Strategic Positioning</div>
-  <h1 class="wordmark">The <em>landscape</em></h1>
-  <div class="subtitle">a cycle-native wellness platform for women who are done apologizing for being cyclical</div>
-  <div class="meta">Prepared for Angie &middot; April 2026 &middot; Working draft</div>
+  <div class="hero-eyebrow">Market Research &middot; Strategic Positioning</div>
+  <h1 class="hero-title">The <em>landscape</em>.</h1>
+  <p class="hero-subtitle">A cycle-native wellness platform for women who are done apologizing for being cyclical.</p>
+  <div class="hero-meta">Prepared for Angie &middot; April 2026 &middot; Working draft</div>
 </header>
 
 <!-- TOC -->
 <nav class="toc">
-  <div class="toc-title">Contents</div>
-  <ol>
-    <li><a href="#landscape">The landscape at a glance</a></li>
-    <li><a href="#direct">Direct competitors &mdash; cycle apps</a></li>
-    <li><a href="#adjacent-astrology">Adjacent &mdash; astrology &amp; the cosmic</a></li>
-    <li><a href="#adjacent-wellness">Adjacent &mdash; nervous system &amp; ritual</a></li>
-    <li><a href="#positioning">The positioning map</a></li>
-    <li><a href="#gaps">Where the gaps actually live</a></li>
-    <li><a href="#recommendation">The recommended wedge</a></li>
+  <div class="toc-label">Contents</div>
+  <ol class="toc-list">
+    <li><a href="#landscape"><span class="toc-roman">I</span><span>The landscape at a glance</span></a></li>
+    <li><a href="#direct"><span class="toc-roman">II</span><span>Direct competitors</span></a></li>
+    <li><a href="#adjacent-astrology"><span class="toc-roman">III</span><span>Adjacent &mdash; astrology</span></a></li>
+    <li><a href="#adjacent-wellness"><span class="toc-roman">IV</span><span>Adjacent &mdash; wellness &amp; ritual</span></a></li>
+    <li><a href="#positioning"><span class="toc-roman">V</span><span>The positioning map</span></a></li>
+    <li><a href="#gaps"><span class="toc-roman">VI</span><span>Where the gaps live</span></a></li>
+    <li><a href="#recommendation"><span class="toc-roman">VII</span><span>The recommended wedge</span></a></li>
   </ol>
 </nav>
 
-<!-- LANDSCAPE -->
+<!-- I. LANDSCAPE -->
 <section id="landscape">
-  <div class="section-number">i</div>
-  <h2>The landscape <em>at a glance</em></h2>
-  <p class="lead">Three markets are converging in one woman's phone: cycle tracking, astrology, and spiritual wellness. None of them are fully serving her. That convergence is the opening.</p>
+  <div class="section-header">
+    <div class="section-header-roman">I</div>
+    <h2 class="section-header-title">The landscape <em>at a glance</em></h2>
+  </div>
 
-  <div class="stats">
-    <div class="stat">
+  <p class="essence">Three markets are converging in one woman's phone. None is fully serving her. That convergence is the opening.</p>
+
+  <div class="stats-grid">
+    <div class="stat-card">
       <div class="stat-number">$14.7<span class="unit">B</span></div>
-      <div class="stat-label">Wellness apps market 2026</div>
+      <div class="stat-label">Wellness apps<br>market 2026</div>
     </div>
-    <div class="stat">
+    <div class="stat-card">
       <div class="stat-number">$1.2<span class="unit">B</span></div>
-      <div class="stat-label">Astrology apps market 2026</div>
+      <div class="stat-label">Astrology apps<br>market 2026</div>
     </div>
-    <div class="stat">
+    <div class="stat-card">
       <div class="stat-number">$2.9<span class="unit">B</span></div>
-      <div class="stat-label">Spiritual wellness apps 2026</div>
+      <div class="stat-label">Spiritual wellness<br>apps 2026</div>
     </div>
-    <div class="stat">
+    <div class="stat-card">
       <div class="stat-number">250<span class="unit">M+</span></div>
-      <div class="stat-label">Cycle-app downloads (top 3)</div>
+      <div class="stat-label">Cycle-app downloads<br>(top 3 combined)</div>
     </div>
   </div>
 
-  <p>The cycle-app category is <strong>dominated by three players</strong> — Flo, Clue, and Period Tracker — with over 250 million combined downloads per Oxford's 2024 study. But dominance isn't the same as love. The category is split between <em>clinical</em> apps (Clue, Samphire, Hormona) and <em>aesthetic/emotional</em> apps (Stardust, Moody, Flo). None of them have fully claimed the <em>spiritual-plus-embodied</em> territory your buyer lives in.</p>
-
-  <p>Meanwhile the astrology market is roughly $1.2B and growing ~9% annually, with Co-Star alone having passed <strong>30 million registered users by 2023</strong>. Spiritual wellness apps are tracking at ~15% CAGR. <strong>The buyer who lives in all three worlds has no single home.</strong> She has Flo, Co-Star, and Calm all open on different screens.</p>
-</section>
-
-<div class="divider">&sect;</div>
-
-<!-- DIRECT COMPETITORS -->
-<section id="direct">
-  <div class="section-number">ii</div>
-  <h2>Direct competitors <em>&mdash; cycle apps</em></h2>
-  <p class="lead">The seven apps Bleed &amp; Bloom will be measured against. Each has claimed a corner. Each has left a side of the room empty.</p>
-
-  <div class="competitors">
-
-    <!-- FLO -->
-    <div class="competitor">
-      <div class="competitor-header">
-        <div class="competitor-name">Flo</div>
-        <div class="competitor-tag">Category Leader</div>
-      </div>
-      <div class="competitor-positioning">The mainstream default. Health-content publisher disguised as a tracker.</div>
-      <div class="competitor-stats">
-        <span>Users <strong>~380M downloads</strong></span>
-        <span>Positioning <strong>Clinical + educational</strong></span>
-        <span>Feel <strong>Pink, clean, friendly</strong></span>
-        <span>Price <strong>Free / ~$50 yr premium</strong></span>
-      </div>
-      <div class="swot-grid">
-        <div class="swot-cell">
-          <h4>Strengths</h4>
-          <ul>
-            <li>Massive content library (thousands of articles)</li>
-            <li>Strong brand recognition, distribution</li>
-            <li>Anonymous Mode added post-Dobbs</li>
-            <li>Works for TTC, pregnancy, contraception</li>
-          </ul>
-        </div>
-        <div class="swot-cell">
-          <h4>Weaknesses</h4>
-          <ul>
-            <li>Feels like WebMD for periods &mdash; no soul</li>
-            <li>2019 FTC data-sharing scandal still follows them</li>
-            <li>Users describe it as "clinical," "sterile"</li>
-            <li>No spiritual or ritual layer whatsoever</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- CLUE -->
-    <div class="competitor">
-      <div class="competitor-header">
-        <div class="competitor-name">Clue</div>
-        <div class="competitor-tag">Science-Led</div>
-      </div>
-      <div class="competitor-positioning">The researcher's choice. Berlin-born, evidence-first, gender-neutral.</div>
-      <div class="competitor-stats">
-        <span>Users <strong>10M+ MAU</strong></span>
-        <span>Positioning <strong>Peer-reviewed research</strong></span>
-        <span>Feel <strong>Neutral, charts-forward</strong></span>
-        <span>Price <strong>Free / Clue Plus $29 yr</strong></span>
-      </div>
-      <div class="swot-grid">
-        <div class="swot-cell">
-          <h4>Strengths</h4>
-          <ul>
-            <li>Strongest privacy reputation in category</li>
-            <li>Academic partnerships (UC Berkeley, Oura)</li>
-            <li>Respected by clinicians and researchers</li>
-            <li>Recently expanded into menopause</li>
-          </ul>
-        </div>
-        <div class="swot-cell">
-          <h4>Weaknesses</h4>
-          <ul>
-            <li>Deliberately unsexy &mdash; no aesthetic appeal</li>
-            <li>Gender-neutral positioning loses "woman-centered" user</li>
-            <li>Engagement is logging, not living</li>
-            <li>No ritual, no community, no spirit</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- STARDUST -->
-    <div class="competitor">
-      <div class="competitor-header">
-        <div class="competitor-name">Stardust</div>
-        <div class="competitor-tag">Closest Competitor</div>
-      </div>
-      <div class="competitor-positioning">Moon-synced period tracking with a cosmic twist. This is the app to study.</div>
-      <div class="competitor-stats">
-        <span>Rating <strong>4.6 &middot; 28K+ reviews</strong></span>
-        <span>Positioning <strong>Astrology + cycle</strong></span>
-        <span>Feel <strong>Cute, playful, millennial</strong></span>
-        <span>Price <strong>$3.99 mo / $24.99 yr</strong></span>
-      </div>
-      <div class="swot-grid">
-        <div class="swot-cell">
-          <h4>Strengths</h4>
-          <ul>
-            <li>Proved the astrology + cycle thesis works</li>
-            <li>Women-owned, privacy-forward positioning</li>
-            <li>Lunar syncing is a genuine differentiator</li>
-            <li>Strong Reddit and TikTok word-of-mouth</li>
-          </ul>
-        </div>
-        <div class="swot-cell">
-          <h4>Weaknesses</h4>
-          <ul>
-            <li>Known bugs, "laggy and unusable" reviews</li>
-            <li>Fertility prediction accuracy questioned publicly</li>
-            <li>Misandrist ad backlash &mdash; alienated buyers</li>
-            <li>Fails irregular cycles, PCOS, PMDD, post-partum</li>
-            <li>Cute tone reads "young," not "sacred"</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- MOODY -->
-    <div class="competitor">
-      <div class="competitor-header">
-        <div class="competitor-name">Moody Month</div>
-        <div class="competitor-tag">Closest In Spirit</div>
-      </div>
-      <div class="competitor-positioning">Daily wellness tracker tied to your cycle. Articles, videos, mood logging.</div>
-      <div class="competitor-stats">
-        <span>Positioning <strong>Holistic lifestyle</strong></span>
-        <span>Feel <strong>Editorial, magazine-y</strong></span>
-        <span>Content <strong>Articles + videos + moon phase</strong></span>
-        <span>Price <strong>Freemium, lifetime tier</strong></span>
-      </div>
-      <div class="swot-grid">
-        <div class="swot-cell">
-          <h4>Strengths</h4>
-          <ul>
-            <li>Already doing cycle + weather + moon phase</li>
-            <li>Wearable integrations (Oura, Fitbit, Apple Health)</li>
-            <li>Women-owned, clean privacy stance</li>
-            <li>Video content library exists</li>
-          </ul>
-        </div>
-        <div class="swot-cell">
-          <h4>Weaknesses</h4>
-          <ul>
-            <li>Underpowered brand &mdash; forgettable aesthetic</li>
-            <li>Technical bugs reported (date errors, sync issues)</li>
-            <li>No community, no products, no ritual layer</li>
-            <li>Not differentiated visually from generic wellness</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- EMBODY -->
-    <div class="competitor">
-      <div class="competitor-header">
-        <div class="competitor-name">Embody / 28x</div>
-        <div class="competitor-tag">Privacy-First Wave</div>
-      </div>
-      <div class="competitor-positioning">Local-only, encrypted, post-Dobbs refuges. Free or philanthropically funded.</div>
-      <div class="competitor-stats">
-        <span>Positioning <strong>Your data stays yours</strong></span>
-        <span>Feel <strong>Minimal, reassuring</strong></span>
-        <span>Storage <strong>On-device only</strong></span>
-        <span>Price <strong>Free</strong></span>
-      </div>
-      <div class="swot-grid">
-        <div class="swot-cell">
-          <h4>Strengths</h4>
-          <ul>
-            <li>Owns the "privacy-first" conversation</li>
-            <li>Zero-trust architecture is real</li>
-            <li>28x funded by Philips Foundation &mdash; no monetization pressure</li>
-          </ul>
-        </div>
-        <div class="swot-cell">
-          <h4>Weaknesses</h4>
-          <ul>
-            <li>Privacy without beauty doesn't retain users</li>
-            <li>No content, no community, no emotional layer</li>
-            <li>Free model limits product investment</li>
-            <li>Easy lesson to borrow &mdash; hard moat to defend</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAMPHIRE/HORMONA -->
-    <div class="competitor">
-      <div class="competitor-header">
-        <div class="competitor-name">Samphire &middot; Hormona</div>
-        <div class="competitor-tag">Clinical Premium</div>
-      </div>
-      <div class="competitor-positioning">Brain-first and hormone-test pathways. Medicalized premium wellness.</div>
-      <div class="competitor-stats">
-        <span>Positioning <strong>Clinical + device/test</strong></span>
-        <span>Feel <strong>White coat, reassuring</strong></span>
-        <span>Hardware <strong>Nettle headband (Samphire)</strong></span>
-        <span>Price <strong>Premium subscription + device</strong></span>
-      </div>
-      <div class="swot-grid">
-        <div class="swot-cell">
-          <h4>Strengths</h4>
-          <ul>
-            <li>Serving the "I have PMDD or PCOS" user well</li>
-            <li>Hardware moat (Samphire's Nettle device)</li>
-            <li>Actual clinical research backing</li>
-            <li>Captures premium spend ($$$ per user)</li>
-          </ul>
-        </div>
-        <div class="swot-cell">
-          <h4>Weaknesses</h4>
-          <ul>
-            <li>High-friction onboarding, clinical TAM</li>
-            <li>Zero spiritual/emotional/ritual language</li>
-            <li>Alienates the woman who wants softness</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- CHANI -->
-    <div class="competitor">
-      <div class="competitor-header">
-        <div class="competitor-name">Chani</div>
-        <div class="competitor-tag">Dark Horse &mdash; Study Closely</div>
-      </div>
-      <div class="competitor-positioning">Astrology app from Chani Nicholas. Liberation-flavored spirituality for women.</div>
-      <div class="competitor-stats">
-        <span>Positioning <strong>Feminist astrology</strong></span>
-        <span>Feel <strong>Warm, intentional, literary</strong></span>
-        <span>Price <strong>~$12 mo</strong></span>
-        <span>Values <strong>Inclusive, anti-capitalist framing</strong></span>
-      </div>
-      <div class="swot-grid">
-        <div class="swot-cell">
-          <h4>Strengths</h4>
-          <ul>
-            <li>Writing quality is the moat &mdash; voice no one else has</li>
-            <li>Trust and loyalty of her audience is real</li>
-            <li>Proves women will pay $12/mo for spiritual guidance</li>
-            <li>Founder-voice + app + community working</li>
-          </ul>
-        </div>
-        <div class="swot-cell">
-          <h4>Weaknesses</h4>
-          <ul>
-            <li>No cycle layer &mdash; astrology only</li>
-            <li>Founder-dependent (cannot replicate without her)</li>
-            <li>Alienates users outside her political register</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
+  <div class="prose">
+    <p>The cycle-app category is <strong>dominated by three players</strong> &mdash; Flo, Clue, and Period Tracker &mdash; with over 250 million combined downloads per Oxford's 2024 study. Dominance isn't the same as love. The category splits between <em>clinical</em> apps (Clue, Samphire, Hormona) and <em>aesthetic/emotional</em> apps (Stardust, Moody, Flo). None have claimed the <em>spiritual-plus-embodied</em> territory your buyer lives in.</p>
+    <p>The astrology market is roughly $1.2B and growing ~9% annually. Co-Star alone passed <strong>30 million registered users by 2023</strong>. Spiritual wellness apps are tracking at ~15% CAGR. <strong>The buyer who lives in all three worlds has no single home.</strong> She has Flo, Co-Star, and Calm open on different screens.</p>
   </div>
 </section>
 
-<div class="divider">&sect;</div>
-
-<!-- ADJACENT ASTROLOGY -->
-<section id="adjacent-astrology">
-  <div class="section-number">iii</div>
-  <h2>Adjacent &mdash; <em>astrology &amp; the cosmic</em></h2>
-  <p class="lead">Not direct competitors &mdash; but they own the same phone screen, the same habit, the same morning ritual. They taught your buyer to expect a daily spiritual check-in.</p>
-
-  <h3>Co&ndash;Star</h3>
-  <p>30M+ registered users. Brutalist black-and-white aesthetic, AI-sharpened snark, push notifications that read like a mean older sister. <strong>Taught a generation that an app could have a <em>voice</em>.</strong> The lesson: personality beats personalization. The gap: there is zero softness. Women who loved it in college are aging out. Many describe feeling "called out" rather than held.</p>
-
-  <h3>The Pattern</h3>
-  <p>Slower growth (~40K monthly downloads), but 2&ndash;4x session duration vs. standard horoscope apps. Proved that women will engage deeply with <strong>personality-pattern content</strong>, not just daily horoscopes. Closer to "therapy speak meets astrology." Lesson: depth of reading drives engagement.</p>
-
-  <h3>Sanctuary</h3>
-  <p>Astrology + live astrologer consultation marketplace. Captures transactional spend (not just subscription). Lesson: <em>the "next step" after reading is someone to talk to</em>. For Bleed &amp; Bloom, this could eventually be phase-informed coaching or community circles.</p>
-
-  <h3>The pattern across all three</h3>
-  <p>Astrology apps have already taught your buyer: <strong>daily check-in is a habit, personality-driven writing is the moat, and women will pay for spiritual guidance monthly.</strong> None of them connect it to her <em>body</em>. That's where Bleed &amp; Bloom enters.</p>
-</section>
-
-<div class="divider">&sect;</div>
-
-<!-- ADJACENT WELLNESS -->
-<section id="adjacent-wellness">
-  <div class="section-number">iv</div>
-  <h2>Adjacent &mdash; <em>nervous system &amp; ritual</em></h2>
-  <p class="lead">These are not cycle apps. They are what your buyer opens <em>instead</em> of a cycle app. Each is renting space in her life that Bleed &amp; Bloom could earn.</p>
-
-  <h3>Calm &middot; Headspace &middot; Insight Timer</h3>
-  <p>Meditation apps captured the "daily calm ritual" behavior. Calm is ~$70/yr, ~100M users. Headspace recently launched VR. Insight Timer is community-content driven. <strong>Lesson: audio guidance is sticky.</strong> A phase-aware 3-minute meditation library is a lighter lift than people think, and there's no serious player doing this.</p>
-
-  <h3>The Class &middot; Peoplehood &middot; Open</h3>
-  <p>Movement-plus-emotion wellness platforms. Hybrid content + community. Subscription-based. Lesson: <strong>women will pay $30&ndash;50/month for guided somatic work</strong> if it feels sacred and beautifully produced.</p>
-
-  <h3>Finch &middot; Stoic &middot; Shine</h3>
-  <p>Self-care and journaling apps, strong with women 22&ndash;32. Finch has 13M+ users via a "care for a virtual pet to care for yourself" mechanic. Lesson: <strong>gamification of self-care works</strong> &mdash; though Bleed &amp; Bloom should pull on ritual, not points.</p>
-
-  <h3>Goop &middot; Moon Juice &middot; Anima Mundi</h3>
-  <p>Product-led spiritual wellness. Proved women will pay premium prices for beautifully branded supplements and rituals. Lesson: <strong>aesthetic IS the product</strong>. A mediocre tincture in a gorgeous vessel outsells a great tincture in a generic one.</p>
-
-  <h3>The pattern across all of these</h3>
-  <p>The nervous-system-aware, vitamin-curious, spiritually-open woman is <strong>already spending money every month on ritual</strong>. She pays Calm, Co-Star, Moon Juice, a meditation subscription, and an astrology reader. Bleed &amp; Bloom's opportunity is to consolidate three of those spends into one home that is <em>tuned to her body</em>.</p>
-</section>
-
-<div class="divider">&sect;</div>
-
-<!-- POSITIONING MAP -->
-<section id="positioning">
-  <div class="section-number">v</div>
-  <h2>The positioning <em>map</em></h2>
-  <p class="lead">Two axes matter: <em>clinical to spiritual</em>, and <em>tracker to lifestyle</em>. The corner nobody owns is spiritual + lifestyle. That is where Bleed &amp; Bloom lives.</p>
-
-  <div class="positioning-map">
-    <div class="axis-label top">Spiritual / Soft</div>
-    <div class="axis-label bottom">Clinical / Data</div>
-    <div class="axis-label left">Lifestyle / Ritual</div>
-    <div class="axis-label right">Tracker / Tool</div>
-
-    <div class="map-point" style="top: 20%; left: 75%;">Stardust</div>
-    <div class="map-point" style="top: 80%; left: 85%;">Clue</div>
-    <div class="map-point" style="top: 70%; left: 70%;">Flo</div>
-    <div class="map-point" style="top: 85%; left: 90%;">Samphire</div>
-    <div class="map-point" style="top: 30%; left: 35%;">Chani</div>
-    <div class="map-point" style="top: 40%; left: 90%;">Moody</div>
-    <div class="map-point" style="top: 25%; left: 80%;">Co-Star</div>
-    <div class="map-point" style="top: 60%; left: 30%;">Calm</div>
-    <div class="map-point" style="top: 35%; left: 25%;">Goop</div>
-    <div class="map-point bb" style="top: 18%; left: 22%;">Bleed &amp; Bloom</div>
-  </div>
-
-  <p>Nobody is combining a <em>daily phase-tuned ritual experience</em> with a <em>soft luxury aesthetic</em> and a <em>product extension layer</em>. Stardust is closest, but it sits further right (tracker-first) and further down (playful rather than sacred). Chani is closest in voice but doesn't touch the body. Moody Month is the right lane with the wrong car &mdash; the brand doesn't carry.</p>
-</section>
-
-<div class="divider">&sect;</div>
-
-<!-- GAPS -->
-<section id="gaps">
-  <div class="section-number">vi</div>
-  <h2>Where the gaps <em>actually live</em></h2>
-  <p class="lead">Seven openings. Each is real. Each is defensible. Each could be a whole company on its own &mdash; but they layer together into one.</p>
-
-  <div class="gaps">
-
-    <div class="gap">
-      <div class="gap-number">i</div>
-      <div>
-        <div class="gap-title">The velvet temple aesthetic</div>
-        <div class="gap-owners">Currently owned by: nobody</div>
-        <p>Every cycle app is either clinical-pastel or cutesy-millennial. None feel sacred. None feel luxe. A dim, candlelit, rose-gold, phase-shifting interface is a <em>genuine design moat</em> &mdash; the kind of thing that goes viral on TikTok screen-recorded. The color-shift-by-phase mechanic alone is unclaimed IP in the category.</p>
-      </div>
-    </div>
-
-    <div class="gap">
-      <div class="gap-number">ii</div>
-      <div>
-        <div class="gap-title">Daily guidance, not daily logging</div>
-        <div class="gap-owners">Closest: Moody Month, but underpowered</div>
-        <p>Every app says "track your symptoms." Almost none say <em>"here is what to do today."</em> A 3-minute ritual, a food nudge, a movement suggestion, an affirmation, a reframe &mdash; tuned to her phase. This is the daily habit loop that keeps retention above 60% month two. Most apps lose users because they're work, not care.</p>
-      </div>
-    </div>
-
-    <div class="gap">
-      <div class="gap-number">iii</div>
-      <div>
-        <div class="gap-title">Nervous system literacy for the cycle</div>
-        <div class="gap-owners">Owned by: nobody &mdash; hot trend with no category leader</div>
-        <p>Vagus nerve, polyvagal theory, co-regulation &mdash; these are everywhere on wellness TikTok but no cycle app speaks the language. Your buyer already knows these words. Bleed &amp; Bloom can be the first app to teach <em>"this is your nervous system in your luteal phase, here is how to settle it."</em> That's a category-defining frame.</p>
-      </div>
-    </div>
-
-    <div class="gap">
-      <div class="gap-number">iv</div>
-      <div>
-        <div class="gap-title">Astrology as an optional layer, not the default</div>
-        <div class="gap-owners">Stardust forces it. Most apps ignore it.</div>
-        <p>Stardust made astrology mandatory. Clue and Flo ignored it. The middle position &mdash; <em>astrology as an opt-in layer you can toggle on</em> &mdash; captures both buyers. The cosmic-curious turn it on. The cosmic-skeptical never see it. Same app, two experiences.</p>
-      </div>
-    </div>
-
-    <div class="gap">
-      <div class="gap-number">v</div>
-      <div>
-        <div class="gap-title">The product extension</div>
-        <div class="gap-owners">Owned by: nobody &mdash; Flo tried, failed, retreated</div>
-        <p>Every cycle app has tried and mostly failed to launch products. They fail because products are bolted on, not native to the experience. Bleed &amp; Bloom launching a <em>womb oil tied to the luteal phase guidance inside the app</em> is a native moment, not a banner ad. App users converting to product buyers is 5&ndash;10x cold e-commerce conversion rates.</p>
-      </div>
-    </div>
-
-    <div class="gap">
-      <div class="gap-number">vi</div>
-      <div>
-        <div class="gap-title">Irregular cycles, PCOS, perimenopause, post-partum</div>
-        <div class="gap-owners">Partially owned by: Samphire, Hormona, Clue</div>
-        <p>Stardust reviews show a pattern: <em>"the app fails when your cycle isn't textbook."</em> The fastest-growing cycle-user cohort is women with PCOS (~10% of women) and perimenopause (women 40+, a largely ignored market). A soft, spiritual <em>and</em> technically competent app for irregular cycles is unclaimed. This is also a future expansion lane.</p>
-      </div>
-    </div>
-
-    <div class="gap">
-      <div class="gap-number">vii</div>
-      <div>
-        <div class="gap-title">Post-Dobbs trust + beauty</div>
-        <div class="gap-owners">Owned by: Embody (trust), no one (both)</div>
-        <p>Privacy apps are ugly. Beautiful apps are leaky. Bleed &amp; Bloom can be <strong>beautiful AND genuinely private</strong> (local-first cycle data, encrypted at rest, explicit no-sell policy on the landing page). This is a meaningful moat with 25&ndash;34-year-old women post-2022 who don't trust their cycle app.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider">&sect;</div>
-
-<div class="pullquote">
-  "She already has Flo, Co&ndash;Star, Calm, and Moon Juice open in different tabs of her life. Bleed &amp; Bloom is the one place that <em>knows her body</em> and speaks all four languages at once."
+<!-- COMPETITORS -->
+<div class="section-divider">
+  <div class="section-divider-eyebrow">Section II</div>
+  <div class="section-divider-title">Direct <em>competitors</em></div>
+  <div class="section-divider-line"></div>
+  <div class="section-divider-sub">The seven apps you'll be measured against. Each has claimed a corner. Each has left a side of the room empty.</div>
 </div>
 
-<!-- RECOMMENDATION -->
-<section id="recommendation">
-  <div class="section-number">vii</div>
-  <h2>The recommended <em>wedge</em></h2>
-  <p class="lead">Seven gaps is too many to attack at once. Here is the single opening to lead with, and the order to expand.</p>
+<section id="direct">
 
-  <div class="recommendation">
-    <h3>Lead wedge: the velvet temple + daily guidance + nervous system literacy</h3>
-    <p>Not the astrology layer. Not the products. Not the privacy story. Those are extensions.</p>
-    <p>The core promise &mdash; the thing the landing page says, the thing the first TikTok shows, the thing the first review quotes &mdash; is this: <strong>"A cycle app that feels like stepping into a velvet temple. Daily guidance tuned to your phase. Real tools for your nervous system. Nothing to log unless you want to."</strong></p>
-    <p>That wedge does three things at once: it differentiates on aesthetic, it differentiates on use-case (guidance vs logging), and it differentiates on language (nervous system, not just hormones). Astrology becomes an opt-in layer in v1.2. Products launch to the warm audience in month 9&ndash;12. Irregular-cycle expansion in year 2.</p>
+  <div class="competitor">
+    <div class="competitor-hero">
+      <div class="competitor-name">Flo</div>
+      <div class="competitor-tag">Category Leader</div>
+    </div>
+    <div class="competitor-essence">The mainstream default. Health-content publisher disguised as a tracker.</div>
+    <div class="competitor-meta">
+      <div><div class="competitor-meta-label">Users</div><div class="competitor-meta-value">~380M downloads</div></div>
+      <div><div class="competitor-meta-label">Positioning</div><div class="competitor-meta-value">Clinical + educational</div></div>
+      <div><div class="competitor-meta-label">Feel</div><div class="competitor-meta-value">Pink, clean, friendly</div></div>
+      <div><div class="competitor-meta-label">Price</div><div class="competitor-meta-value">Free / $50 yr premium</div></div>
+    </div>
+    <div class="competitor-swot">
+      <div class="swot-cell">
+        <div class="swot-cell-label">Strengths</div>
+        <ul>
+          <li>Massive content library</li>
+          <li>Strong brand recognition</li>
+          <li>Anonymous Mode post-Dobbs</li>
+          <li>Works for TTC, pregnancy</li>
+        </ul>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-cell-label">Weaknesses</div>
+        <ul>
+          <li>Feels like WebMD for periods</li>
+          <li>2019 FTC data-sharing scandal</li>
+          <li>Users describe it as "sterile"</li>
+          <li>No spiritual or ritual layer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-    <h3 style="margin-top: 32px;">Why this wedge is defensible</h3>
-    <p>Flo can't copy it because it would break their mainstream positioning. Clue can't copy it because their brand is anti-aesthetic. Stardust can't copy it because they're locked into the playful tone. Chani can't copy it because she doesn't touch the body. Moody can't copy it because the brand isn't strong enough to carry the aesthetic. <strong>The only people who can build this are people who deeply understand this specific buyer</strong> &mdash; which your friend does.</p>
+  <div class="competitor">
+    <div class="competitor-hero">
+      <div class="competitor-name">Clue</div>
+      <div class="competitor-tag">Science-Led</div>
+    </div>
+    <div class="competitor-essence">The researcher's choice. Berlin-born, evidence-first, gender-neutral.</div>
+    <div class="competitor-meta">
+      <div><div class="competitor-meta-label">Users</div><div class="competitor-meta-value">10M+ MAU</div></div>
+      <div><div class="competitor-meta-label">Positioning</div><div class="competitor-meta-value">Peer-reviewed research</div></div>
+      <div><div class="competitor-meta-label">Feel</div><div class="competitor-meta-value">Neutral, charts-forward</div></div>
+      <div><div class="competitor-meta-label">Price</div><div class="competitor-meta-value">Free / Plus $29 yr</div></div>
+    </div>
+    <div class="competitor-swot">
+      <div class="swot-cell">
+        <div class="swot-cell-label">Strengths</div>
+        <ul>
+          <li>Strongest privacy reputation</li>
+          <li>Academic partnerships</li>
+          <li>Respected by clinicians</li>
+          <li>Expanded into menopause</li>
+        </ul>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-cell-label">Weaknesses</div>
+        <ul>
+          <li>Deliberately unsexy</li>
+          <li>Loses "woman-centered" user</li>
+          <li>Engagement is logging, not living</li>
+          <li>No ritual, community, or spirit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-    <h3 style="margin-top: 32px;">What to test first, cheaply</h3>
-    <p>Before writing a line of app code: a waitlist landing page with the phase-shifting color language, two weeks of TikTok in the velvet-temple voice, and fifteen conversations with Mayas. If the landing page converts at 15%+ and the TikToks cross 10K views, the positioning is right. If not, iterate on voice before building.</p>
+  <div class="competitor">
+    <div class="competitor-hero">
+      <div class="competitor-name">Stardust</div>
+      <div class="competitor-tag">Closest Competitor</div>
+    </div>
+    <div class="competitor-essence">Moon-synced period tracking with a cosmic twist. The app to study.</div>
+    <div class="competitor-meta">
+      <div><div class="competitor-meta-label">Users</div><div class="competitor-meta-value">~1M downloads</div></div>
+      <div><div class="competitor-meta-label">Positioning</div><div class="competitor-meta-value">Cycle + lunar + astrology</div></div>
+      <div><div class="competitor-meta-label">Feel</div><div class="competitor-meta-value">Gen-Z cosmic, playful</div></div>
+      <div><div class="competitor-meta-label">Price</div><div class="competitor-meta-value">Free / $40 yr Pro</div></div>
+    </div>
+    <div class="competitor-swot">
+      <div class="swot-cell">
+        <div class="swot-cell-label">Strengths</div>
+        <ul>
+          <li>First to fuse cosmic and cycle</li>
+          <li>Strong Gen-Z brand voice</li>
+          <li>Fun daily forecasts</li>
+          <li>Community ritual language</li>
+        </ul>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-cell-label">Weaknesses</div>
+        <ul>
+          <li>Reads young &mdash; loses 28+</li>
+          <li>Astrology mandatory, not optional</li>
+          <li>Aesthetic is playful, not sacred</li>
+          <li>No product extension or body work</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="competitor-hero">
+      <div class="competitor-name">Moody Month</div>
+      <div class="competitor-tag">Closest In Spirit</div>
+    </div>
+    <div class="competitor-essence">Daily wellness tracker tied to your cycle. Articles, videos, mood logging.</div>
+    <div class="competitor-meta">
+      <div><div class="competitor-meta-label">Users</div><div class="competitor-meta-value">&lt;500K, struggling</div></div>
+      <div><div class="competitor-meta-label">Positioning</div><div class="competitor-meta-value">Lifestyle + cycle guidance</div></div>
+      <div><div class="competitor-meta-label">Feel</div><div class="competitor-meta-value">Magazine-like, editorial</div></div>
+      <div><div class="competitor-meta-label">Price</div><div class="competitor-meta-value">Free, limited monetization</div></div>
+    </div>
+    <div class="competitor-swot">
+      <div class="swot-cell">
+        <div class="swot-cell-label">Strengths</div>
+        <ul>
+          <li>Best editorial content in category</li>
+          <li>Closest positioning to your wedge</li>
+          <li>Real phase-specific guidance</li>
+          <li>Good tone, warm brand voice</li>
+        </ul>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-cell-label">Weaknesses</div>
+        <ul>
+          <li>Traction stalled</li>
+          <li>Aesthetic is editorial, not luxe</li>
+          <li>No product, no community layer</li>
+          <li>Brand doesn't carry beyond content</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="competitor-hero">
+      <div class="competitor-name">Embody / 28x</div>
+      <div class="competitor-tag">Privacy-First Wave</div>
+    </div>
+    <div class="competitor-essence">Local-only, encrypted, post-Dobbs refuges. Free or philanthropically funded.</div>
+    <div class="competitor-meta">
+      <div><div class="competitor-meta-label">Users</div><div class="competitor-meta-value">Niche, growing</div></div>
+      <div><div class="competitor-meta-label">Positioning</div><div class="competitor-meta-value">Anti-surveillance</div></div>
+      <div><div class="competitor-meta-label">Feel</div><div class="competitor-meta-value">Utilitarian, activist</div></div>
+      <div><div class="competitor-meta-label">Price</div><div class="competitor-meta-value">Free</div></div>
+    </div>
+    <div class="competitor-swot">
+      <div class="swot-cell">
+        <div class="swot-cell-label">Strengths</div>
+        <ul>
+          <li>Real privacy moat (local-only)</li>
+          <li>Political alignment post-Dobbs</li>
+          <li>Trusted in repro-rights spaces</li>
+        </ul>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-cell-label">Weaknesses</div>
+        <ul>
+          <li>No aesthetic investment</li>
+          <li>Utilitarian, not inviting</li>
+          <li>Won't convert mainstream buyers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="competitor-hero">
+      <div class="competitor-name">Samphire / Hormona</div>
+      <div class="competitor-tag">Clinical Coaches</div>
+    </div>
+    <div class="competitor-essence">Hormone-testing-adjacent platforms for women with clinical cycle issues.</div>
+    <div class="competitor-meta">
+      <div><div class="competitor-meta-label">Users</div><div class="competitor-meta-value">Small, serious</div></div>
+      <div><div class="competitor-meta-label">Positioning</div><div class="competitor-meta-value">Clinical + hormonal</div></div>
+      <div><div class="competitor-meta-label">Feel</div><div class="competitor-meta-value">Medical-adjacent</div></div>
+      <div><div class="competitor-meta-label">Price</div><div class="competitor-meta-value">$10-30/mo</div></div>
+    </div>
+    <div class="competitor-swot">
+      <div class="swot-cell">
+        <div class="swot-cell-label">Strengths</div>
+        <ul>
+          <li>High-intent user actively suffering</li>
+          <li>Premium pricing works</li>
+          <li>Real medical value</li>
+        </ul>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-cell-label">Weaknesses</div>
+        <ul>
+          <li>Too niche for mainstream growth</li>
+          <li>Clinical feel scares off wellness buyers</li>
+          <li>No ritual, aesthetic, or lifestyle</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="competitor">
+    <div class="competitor-hero">
+      <div class="competitor-name">Chani</div>
+      <div class="competitor-tag">Tonal Neighbor</div>
+    </div>
+    <div class="competitor-essence">Sacred-voiced astrology app. Closest to your tonal register.</div>
+    <div class="competitor-meta">
+      <div><div class="competitor-meta-label">Users</div><div class="competitor-meta-value">~500K paid</div></div>
+      <div><div class="competitor-meta-label">Positioning</div><div class="competitor-meta-value">Astrology + spiritual</div></div>
+      <div><div class="competitor-meta-label">Feel</div><div class="competitor-meta-value">Sacred, poetic, lush</div></div>
+      <div><div class="competitor-meta-label">Price</div><div class="competitor-meta-value">Free / $12/mo</div></div>
+    </div>
+    <div class="competitor-swot">
+      <div class="swot-cell">
+        <div class="swot-cell-label">Strengths</div>
+        <ul>
+          <li>Closest voice to your brand</li>
+          <li>Real community, paying users</li>
+          <li>Proven spiritual tone works</li>
+          <li>Premium subscription model</li>
+        </ul>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-cell-label">Weaknesses</div>
+        <ul>
+          <li>Doesn't touch the body at all</li>
+          <li>No cycle tracking or phase work</li>
+          <li>Astrology-only lens</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ADJACENT -->
+<div class="section-divider">
+  <div class="section-divider-eyebrow">Section III &amp; IV</div>
+  <div class="section-divider-title">Adjacent <em>markets</em></div>
+  <div class="section-divider-line"></div>
+  <div class="section-divider-sub">Not direct competitors &mdash; but they have her attention, her subscription dollars, and her habits.</div>
+</div>
+
+<section id="adjacent-astrology">
+  <div class="section-header">
+    <div class="section-header-roman">III</div>
+    <h2 class="section-header-title">Adjacent &mdash; <em>astrology &amp; the cosmic</em></h2>
+  </div>
+
+  <p class="essence">Your buyer is already paying for these apps. They taught her to ritualize her day. They never touched her body.</p>
+
+  <div class="adjacent-group">
+    <div class="adjacent-hero">
+      <div class="adjacent-name">Co&ndash;Star</div>
+      <div class="adjacent-tag">30M+ users</div>
+    </div>
+    <div class="adjacent-body">
+      <p>Sharp-voiced, viral, Gen-Z first. Famous for unsolicited honesty. Monetizes through birth-chart readings and compatibility. <strong>She already checks Co-Star first thing in the morning.</strong> She has learned to receive a daily directive from the cosmos.</p>
+    </div>
+  </div>
+
+  <div class="adjacent-group">
+    <div class="adjacent-hero">
+      <div class="adjacent-name">The Pattern</div>
+      <div class="adjacent-tag">Deeper, psychological</div>
+    </div>
+    <div class="adjacent-body">
+      <p>Longer, more therapeutic. Channing Tatum famously freaked out about it in 2020. Attracts the thirties+ astrology-curious buyer who wants more than Co-Star's snark. <em>Closer to your buyer in age, but still only astrology.</em></p>
+    </div>
+  </div>
+
+  <div class="adjacent-group">
+    <div class="adjacent-hero">
+      <div class="adjacent-name">Sanctuary</div>
+      <div class="adjacent-tag">Live readings</div>
+    </div>
+    <div class="adjacent-body">
+      <p>Live astrology readings with real astrologers, $5-20 a pop. High-touch, premium, working. Shows there's real willingness to pay for spiritual guidance in this demographic.</p>
+    </div>
+  </div>
+
+  <div class="pattern-callout">
+    <div class="pattern-callout-label">The pattern across all three</div>
+    <p>They've normalized the daily spiritual check-in. They've proven she'll pay for a subscription that tells her what her inner weather is. <em>They never touched her body.</em> A cycle app that inherits their ritual language is speaking a dialect she already speaks.</p>
   </div>
 </section>
 
+<section id="adjacent-wellness" style="margin-top: 60px;">
+  <div class="section-header">
+    <div class="section-header-roman">IV</div>
+    <h2 class="section-header-title">Adjacent &mdash; <em>nervous system &amp; ritual</em></h2>
+  </div>
+
+  <p class="essence">Four more categories she's already paying for. Each one taught her a habit your app can inherit.</p>
+
+  <div class="adjacent-group">
+    <div class="adjacent-hero">
+      <div class="adjacent-name">Calm &middot; Headspace &middot; Insight Timer</div>
+      <div class="adjacent-tag">Meditation / nervous system</div>
+    </div>
+    <div class="adjacent-body">
+      <p>She's used these. She has a "favorite" guided meditation. She knows what <em>down-regulation</em> means. <strong>These apps taught her that daily nervous system care is normal</strong> &mdash; but they don't know her cycle.</p>
+    </div>
+  </div>
+
+  <div class="adjacent-group">
+    <div class="adjacent-hero">
+      <div class="adjacent-name">The Class &middot; Peoplehood &middot; Open</div>
+      <div class="adjacent-tag">Somatic movement + community</div>
+    </div>
+    <div class="adjacent-body">
+      <p>Paying for somatic practices, cathartic movement, emotional release, community co-regulation. She is <em>done with "just sit and breathe."</em> She wants to shake, cry, move, release. A cycle app could hold that energy.</p>
+    </div>
+  </div>
+
+  <div class="adjacent-group">
+    <div class="adjacent-hero">
+      <div class="adjacent-name">Finch &middot; Stoic &middot; Shine</div>
+      <div class="adjacent-tag">Gamified emotional care</div>
+    </div>
+    <div class="adjacent-body">
+      <p>She's tracking her moods, journaling on prompts, being reminded gently. <strong>These apps taught her that short daily emotional check-ins are good for her.</strong> Cycle-aware versions of this don't exist yet.</p>
+    </div>
+  </div>
+
+  <div class="adjacent-group">
+    <div class="adjacent-hero">
+      <div class="adjacent-name">Goop &middot; Moon Juice &middot; Anima Mundi</div>
+      <div class="adjacent-tag">Ritual product brands</div>
+    </div>
+    <div class="adjacent-body">
+      <p>She's buying adaptogens, tonics, womb oils, tinctures. She already <em>pays for objects that sit next to her ritual.</em> This is the proof that a cycle app with a product extension layer is buildable.</p>
+    </div>
+  </div>
+
+  <div class="pattern-callout">
+    <div class="pattern-callout-label">The pattern across all of these</div>
+    <p>She already spends $40&ndash;200/month across these categories, with no single brand owning the whole. <em>Your wedge is inheriting the daily habit from meditation, the tonal register from astrology, the spiritual-body work from somatic, and the product model from Goop &mdash; and applying all four to the cycle.</em></p>
+  </div>
+</section>
+
+<!-- POSITIONING -->
+<div class="section-divider">
+  <div class="section-divider-eyebrow">Section V</div>
+  <div class="section-divider-title">The positioning <em>map</em></div>
+  <div class="section-divider-line"></div>
+  <div class="section-divider-sub">Two axes, nine players, one empty quadrant.</div>
+</div>
+
+<section id="positioning">
+  <p class="essence" style="text-align:center; margin: 0 auto 40px;">The corner nobody owns is <em>spiritual + lifestyle</em>. That is where your brand lives.</p>
+
+  <div class="positioning-map">
+    <div class="map-axes">
+      <div class="axis-label top">Spiritual / Soft</div>
+      <div class="axis-label bottom">Clinical / Data</div>
+      <div class="axis-label left">Lifestyle / Ritual</div>
+      <div class="axis-label right">Tracker / Tool</div>
+
+      <div class="map-point" style="top: 20%; left: 75%;">Stardust</div>
+      <div class="map-point" style="top: 80%; left: 85%;">Clue</div>
+      <div class="map-point" style="top: 70%; left: 70%;">Flo</div>
+      <div class="map-point" style="top: 85%; left: 90%;">Samphire</div>
+      <div class="map-point" style="top: 30%; left: 35%;">Chani</div>
+      <div class="map-point" style="top: 40%; left: 90%;">Moody</div>
+      <div class="map-point" style="top: 25%; left: 80%;">Co-Star</div>
+      <div class="map-point" style="top: 60%; left: 30%;">Calm</div>
+      <div class="map-point" style="top: 35%; left: 25%;">Goop</div>
+      <div class="map-point you" style="top: 18%; left: 22%;">Your brand</div>
+    </div>
+  </div>
+
+  <div class="map-insight">
+    Nobody is combining a <strong>daily phase-tuned ritual experience</strong> with a <strong>soft luxury aesthetic</strong> and a <strong>product extension layer</strong>. Stardust is closest but sits further right (tracker-first) and further down (playful, not sacred). Chani is closest in voice but doesn't touch the body. Moody Month is the right lane with the wrong car &mdash; the brand doesn't carry.
+  </div>
+</section>
+
+<!-- GAPS -->
+<div class="section-divider">
+  <div class="section-divider-eyebrow">Section VI</div>
+  <div class="section-divider-title">Where the <em>gaps</em> live</div>
+  <div class="section-divider-line"></div>
+  <div class="section-divider-sub">Seven openings. Each real. Each defensible. Each could be a whole company &mdash; but they layer together into one.</div>
+</div>
+
+<section id="gaps">
+
+  <div class="gap-card">
+    <div class="gap-number">I</div>
+    <div>
+      <div class="gap-title">The velvet temple aesthetic</div>
+      <div class="gap-owners">Currently owned by &mdash; nobody</div>
+      <div class="gap-body">Every cycle app is either clinical-pastel or cutesy-millennial. None feel sacred. None feel luxe. A dim, candlelit, rose-gold, phase-shifting interface is a <em>genuine design moat</em>. The color-shift-by-phase mechanic alone is unclaimed IP.</div>
+    </div>
+  </div>
+
+  <div class="gap-card">
+    <div class="gap-number">II</div>
+    <div>
+      <div class="gap-title">Daily guidance, not daily logging</div>
+      <div class="gap-owners">Closest &mdash; Moody Month, underpowered</div>
+      <div class="gap-body">Every app says <em>"track your symptoms."</em> Almost none say <em>"here is what to do today."</em> A 3-minute ritual, a food nudge, a movement suggestion, tuned to her phase. <strong>This is the daily habit loop that keeps retention above 60% month two.</strong></div>
+    </div>
+  </div>
+
+  <div class="gap-card">
+    <div class="gap-number">III</div>
+    <div>
+      <div class="gap-title">Nervous system literacy for the cycle</div>
+      <div class="gap-owners">Owned by &mdash; nobody. Hot trend, no leader.</div>
+      <div class="gap-body">Vagus nerve, polyvagal theory, co-regulation &mdash; everywhere on wellness TikTok, but no cycle app speaks the language. Your buyer already knows these words. Be the first app to teach <em>"this is your nervous system in your luteal phase."</em></div>
+    </div>
+  </div>
+
+  <div class="gap-card">
+    <div class="gap-number">IV</div>
+    <div>
+      <div class="gap-title">Astrology as an optional layer</div>
+      <div class="gap-owners">Stardust forces it. Others ignore it.</div>
+      <div class="gap-body">Stardust made astrology mandatory. Clue and Flo ignored it. The middle position &mdash; <em>astrology as an opt-in toggle</em> &mdash; captures both buyers. The cosmic-curious turn it on. The cosmic-skeptical never see it.</div>
+    </div>
+  </div>
+
+  <div class="gap-card">
+    <div class="gap-number">V</div>
+    <div>
+      <div class="gap-title">The product extension</div>
+      <div class="gap-owners">Owned by &mdash; nobody. Flo tried, failed.</div>
+      <div class="gap-body">Every cycle app has tried and mostly failed to launch products. They fail because products are bolted on, not native. A <em>womb oil tied to luteal-phase guidance inside the app</em> is a native moment, not a banner ad. <strong>App users converting to product buyers is 5&ndash;10x cold e-commerce conversion.</strong></div>
+    </div>
+  </div>
+
+  <div class="gap-card">
+    <div class="gap-number">VI</div>
+    <div>
+      <div class="gap-title">Irregular cycles, PCOS, perimenopause</div>
+      <div class="gap-owners">Partially owned by &mdash; Samphire, Hormona, Clue</div>
+      <div class="gap-body">Stardust reviews show a pattern: <em>"the app fails when your cycle isn't textbook."</em> The fastest-growing cohort is PCOS (~10% of women) and perimenopause (40+). A soft, spiritual <em>and</em> technically competent app for irregular cycles is unclaimed.</div>
+    </div>
+  </div>
+
+  <div class="gap-card">
+    <div class="gap-number">VII</div>
+    <div>
+      <div class="gap-title">Post-Dobbs trust + beauty</div>
+      <div class="gap-owners">Owned by &mdash; Embody (trust), nobody (both)</div>
+      <div class="gap-body">Privacy apps are ugly. Beautiful apps are leaky. You can be <strong>beautiful AND genuinely private</strong> (local-first data, encrypted at rest, explicit no-sell policy). A meaningful moat with 25&ndash;34-year-old women post-2022.</div>
+    </div>
+  </div>
+
+</section>
+
+<div class="pullquote">
+  "She already has Flo, Co&ndash;Star, Calm, and Moon Juice open in different tabs of her life. Your brand is the one place that <em>knows her body</em> and speaks all four languages at once."
+</div>
+
+<!-- WEDGE -->
+<div class="section-divider">
+  <div class="section-divider-eyebrow">Section VII</div>
+  <div class="section-divider-title">The recommended <em>wedge</em></div>
+  <div class="section-divider-line"></div>
+  <div class="section-divider-sub">Seven gaps is too many to attack at once. Here is the one to lead with, and the order to expand.</div>
+</div>
+
+<section id="recommendation">
+  <div class="wedge">
+
+    <div class="wedge-block">
+      <div class="wedge-block-label">The lead wedge</div>
+      <h3>Velvet temple + daily guidance + <em>nervous system literacy</em></h3>
+      <p>Not the astrology layer. Not the products. Not the privacy story. Those are extensions.</p>
+      <div class="wedge-headline">"A cycle app that feels like stepping into a velvet temple. Daily guidance tuned to your phase. Real tools for your nervous system. Nothing to log unless you want to."</div>
+      <p style="margin-top: 20px;">That wedge does three things at once: it differentiates on <strong>aesthetic</strong>, on <strong>use-case</strong> (guidance vs logging), and on <strong>language</strong> (nervous system, not just hormones). Astrology becomes an opt-in in v1.2. Products launch to the warm audience in month 9&ndash;12. Irregular-cycle expansion in year 2.</p>
+    </div>
+
+    <div class="wedge-block">
+      <div class="wedge-block-label">Why this wedge is defensible</div>
+      <h3>Each competitor is <em>structurally locked out</em>.</h3>
+      <p><strong>Flo</strong> can't copy it &mdash; would break their mainstream positioning. <strong>Clue</strong> can't copy it &mdash; their brand is anti-aesthetic. <strong>Stardust</strong> can't copy it &mdash; locked into playful tone. <strong>Chani</strong> can't copy it &mdash; she doesn't touch the body. <strong>Moody</strong> can't &mdash; brand isn't strong enough.</p>
+      <p><em>The only people who can build this are people who deeply understand this specific buyer</em> &mdash; which you do.</p>
+    </div>
+
+    <div class="wedge-block">
+      <div class="wedge-block-label">What to test first, cheaply</div>
+      <h3>Before writing a line of app code.</h3>
+      <p>A waitlist landing page with the phase-shifting color language. Two weeks of TikTok in the velvet-temple voice. Fifteen conversations with Mayas.</p>
+      <p><strong>If the landing page converts at 15%+ and the TikToks cross 10K views, the positioning is right.</strong> If not, iterate on voice before building.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <div class="footer-mark">Bleed &amp; Bloom</div>
-  <div class="footer-note">Working strategy document &middot; April 2026</div>
+  <div class="footer-mark">A working strategy document</div>
+  <div class="footer-note">Prepared by Revised Strategies &middot; April 2026</div>
 </footer>
 
 </div>
+
 </body>
 </html>
