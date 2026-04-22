@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Angie &mdash; A Working Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Dancing+Script:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #F4D8D5;
+    --blush-soft: #F9E6E3;
+    --blush-pale: #FDF4F2;
+    --rose-metallic: #D4A59A;
+    --rose-deep: #B8857A;
+    --ink: #1A1A1A;
+    --ink-soft: #3D3D3D;
+    --body-text: #4A4A4A;
+    --cream: #FAFAF8;
+    --white: #FFFFFF;
+    --warm-gray: #8A8582;
+    --divider: #E8D5D0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    background: var(--blush-pale);
+    color: var(--body-text);
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Soft ambient blush gradient */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(244, 216, 213, 0.45) 0%, transparent 45%),
+      radial-gradient(circle at 85% 75%, rgba(212, 165, 154, 0.22) 0%, transparent 50%),
+      radial-gradient(circle at 50% 100%, rgba(249, 230, 227, 0.3) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Grain */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.015;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 48px 100px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 60px 0 80px;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 500;
+    margin-bottom: 48px;
+  }
+
+  .hero-greeting {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--rose-deep);
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+
+  .hero-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 88px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 40px;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--rose-metallic);
+    margin: 40px auto;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6vw, 64px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-title em { color: var(--rose-deep); }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .section-label-line {
+    flex: 1;
+    height: 1px;
+    background: var(--divider);
+  }
+
+  .section-label-text {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+  }
+
+  /* DOORWAY CARDS */
+  .doorways {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 80px;
+  }
+
+  .doorway {
+    display: flex;
+    flex-direction: column;
+    padding: 44px 40px 40px;
+    background: var(--white);
+    border: 1px solid var(--divider);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+  }
+
+  .doorway::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rose-metallic) 0%, var(--rose-deep) 100%);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .doorway:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(184, 133, 122, 0.15);
+    border-color: var(--rose-metallic);
+  }
+
+  .doorway:hover::before {
+    opacity: 1;
+  }
+
+  .doorway-roman {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--rose-deep);
+    letter-spacing: 0.3em;
+    margin-bottom: 14px;
+  }
+
+  .doorway-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  .doorway-kicker {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .doorway-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--rose-deep);
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+
+  .doorway-body {
+    font-size: 13.5px;
+    color: var(--body-text);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    flex: 1;
+  }
+
+  .doorway-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--divider);
+    margin-top: auto;
+  }
+
+  .doorway-status {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #7A8B6B;
+  }
+
+  .doorway-cta {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: gap 0.3s ease, color 0.3s ease;
+  }
+
+  .doorway:hover .doorway-cta {
+    color: var(--rose-deep);
+    gap: 16px;
+  }
+
+  .doorway-cta-arrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .doorway:hover .doorway-cta-arrow {
+    transform: translateX(2px);
+  }
+
+  /* COMING SOON CARD */
+  .coming-soon {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .coming-card {
+    padding: 28px 28px;
+    background: var(--blush-pale);
+    border: 1px dashed var(--rose-metallic);
+    opacity: 0.75;
+  }
+
+  .coming-card-label {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .coming-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .coming-card-note {
+    font-size: 12px;
+    color: var(--warm-gray);
+    line-height: 1.5;
+  }
+
+  /* A NOTE FROM MILA */
+  .note {
+    background: var(--white);
+    border-left: 3px solid var(--rose-metallic);
+    padding: 40px 48px;
+    margin: 60px 0 40px;
+  }
+
+  .note-label {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .note-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .note-body strong {
+    color: var(--rose-deep);
+    font-weight: 400;
+  }
+
+  .note-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 34px;
+    color: var(--ink);
+    margin-top: 16px;
+  }
+
+  .note-signature-title {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-top: 4px;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding-top: 60px;
+    margin-top: 60px;
+    border-top: 1px solid var(--divider);
+  }
+
+  .footer-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--rose-deep);
+    margin-bottom: 12px;
+  }
+
+  .footer-note {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 820px) {
+    .container { padding: 48px 24px 80px; }
+    .hero-name { font-size: 64px; }
+    .hero-title { font-size: 36px; }
+    .doorways { grid-template-columns: 1fr; gap: 20px; }
+    .doorway { padding: 32px 28px; }
+    .doorway-title { font-size: 34px; }
+    .coming-soon { grid-template-columns: 1fr; }
+    .note { padding: 28px 24px; }
+    .note-body { font-size: 17px; }
+  }
+  /* PASSWORD GATE */
+  .gate {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--blush-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .gate::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 25% 30%, rgba(244, 216, 213, 0.5) 0%, transparent 45%),
+      radial-gradient(circle at 75% 70%, rgba(212, 165, 154, 0.25) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .gate-card {
+    position: relative;
+    background: var(--white);
+    padding: 56px 56px 48px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--divider);
+    box-shadow: 0 20px 60px rgba(184, 133, 122, 0.12);
+  }
+  .gate-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rose-metallic) 0%, var(--rose-deep) 100%);
+  }
+  .gate-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+  .gate-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .gate-title em { color: var(--rose-deep); }
+  .gate-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--rose-deep);
+    margin-bottom: 36px;
+  }
+  .gate-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--rose-metallic);
+    margin: 28px auto;
+  }
+  .gate-input {
+    width: 100%;
+    padding: 14px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    background: var(--blush-pale);
+    border: 1px solid var(--divider);
+    outline: none;
+    text-align: center;
+    margin-bottom: 16px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .gate-input:focus {
+    border-color: var(--rose-metallic);
+    background: var(--white);
+  }
+  .gate-input::placeholder {
+    color: var(--warm-gray);
+    font-style: italic;
+  }
+  .gate-button {
+    width: 100%;
+    padding: 14px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--rose-deep);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .gate-button:hover {
+    background: var(--ink);
+  }
+  .gate-error {
+    font-size: 11px;
+    color: #B8625F;
+    margin-top: 14px;
+    font-style: italic;
+    min-height: 18px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .gate-error.show { opacity: 1; }
+  .gate-footer {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-top: 32px;
+  }
+  body.gate-locked { overflow: hidden; }
+  body.gate-locked .container { display: none; }
+
+</style>
+</head>
+<body class="gate-locked">
+
+<!-- PASSWORD GATE -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <div class="gate-eyebrow">A Working Hub</div>
+    <h1 class="gate-title">For <em>Angie</em></h1>
+    <div class="gate-sub">A quiet space, kept just for you.</div>
+    <div class="gate-divider"></div>
+    <form id="gate-form" autocomplete="off">
+      <input type="password" id="gate-input" class="gate-input" placeholder="Enter the word" autocomplete="off" spellcheck="false" autofocus>
+      <button type="submit" class="gate-button">Enter</button>
+      <div id="gate-error" class="gate-error">That's not quite right &mdash; try again.</div>
+    </form>
+    <div class="gate-footer">Revised Strategies</div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var PASS = 'Angie2026!';
+  var gate = document.getElementById('gate');
+  var form = document.getElementById('gate-form');
+  var input = document.getElementById('gate-input');
+  var errorEl = document.getElementById('gate-error');
+
+  // Already unlocked this session? Skip the gate.
+  try {
+    if (sessionStorage.getItem('hub-unlocked') === 'yes') {
+      unlock();
+      return;
+    }
+  } catch (e) { /* sessionStorage may be blocked; fall through */ }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value === PASS) {
+      try { sessionStorage.setItem('hub-unlocked', 'yes'); } catch (e) {}
+      unlock();
+    } else {
+      errorEl.classList.add('show');
+      input.value = '';
+      input.focus();
+    }
+  });
+
+  input.addEventListener('input', function() {
+    errorEl.classList.remove('show');
+  });
+
+  function unlock() {
+    gate.style.display = 'none';
+    document.body.classList.remove('gate-locked');
+  }
+})();
+</script>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-eyebrow">A Working Hub</div>
+    <div class="hero-greeting">Prepared for</div>
+    <div class="hero-name">Angie</div>
+
+    <div class="hero-divider"></div>
+
+    <h1 class="hero-title">A quiet home for <em>the brand you're building</em>.</h1>
+    <p class="hero-subtitle">Everything in one place. Come back to it as often as you need.</p>
+  </header>
+
+  <!-- DOORWAYS -->
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">What's inside</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="doorways">
+
+    <a class="doorway" href="naming_shortlist.html">
+      <div class="doorway-roman">I</div>
+      <div class="doorway-title">Naming<br>Shortlist</div>
+      <div class="doorway-kicker">Ten names to sit with</div>
+      <div class="doorway-description">Ten names across four registers. Each one scored, each one explained.</div>
+      <p class="doorway-body">A full naming exploration with meanings, why-it-fits, honest availability flags, and a professional scoring system. Four registers (soft, sacred, intimate, bold) so you can feel which direction matches your gut.</p>
+      <div class="doorway-meta">
+        <div class="doorway-status">
+          <span class="status-dot"></span>
+          <span>Ready for you</span>
+        </div>
+        <div class="doorway-cta">
+          <span>Open</span>
+          <span class="doorway-cta-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="doorway" href="market_research.html">
+      <div class="doorway-roman">II</div>
+      <div class="doorway-title">Market<br>Research</div>
+      <div class="doorway-kicker">The landscape, mapped</div>
+      <div class="doorway-description">Where your brand lives, who it lives alongside, and the empty quadrant you can claim.</div>
+      <p class="doorway-body">Full competitive landscape across direct cycle apps and adjacent wellness, astrology, and ritual brands. Includes a positioning map, seven identified gaps, and the strategic wedge worth building into.</p>
+      <div class="doorway-meta">
+        <div class="doorway-status">
+          <span class="status-dot"></span>
+          <span>Ready for you</span>
+        </div>
+        <div class="doorway-cta">
+          <span>Open</span>
+          <span class="doorway-cta-arrow">&rarr;</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- COMING SOON -->
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">Also in the works</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="coming-soon">
+    <div class="coming-card">
+      <div class="coming-card-label">Next up</div>
+      <div class="coming-card-title">Supplier sourcing</div>
+      <div class="coming-card-note">Wholesale, hero-product oils, candles, packaging &mdash; with outreach templates.</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-card-label">Next up</div>
+      <div class="coming-card-title">Brand identity</div>
+      <div class="coming-card-note">Palette, typography, and the first visual direction once the name lands.</div>
+    </div>
+    <div class="coming-card">
+      <div class="coming-card-label">Next up</div>
+      <div class="coming-card-title">Launch plan</div>
+      <div class="coming-card-note">First drop timing, pre-launch list, and the first season's box concept.</div>
+    </div>
+  </div>
+
+  <!-- NOTE -->
+  <div class="note">
+    <div class="note-label">A note from Mila</div>
+    <p class="note-body">Angie &mdash; this is yours to move through at your own pace. Sit with the names first. Read the market piece when you're ready to zoom out. <strong>Nothing here is a verdict.</strong> It's a map. You're the one who gets to choose where to walk.</p>
+    <div class="note-signature">Mila</div>
+    <div class="note-signature-title">Revised Strategies</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-mark">A working hub &middot; built with care</div>
+    <div class="footer-note">Prepared by Revised Strategies &middot; April 2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
