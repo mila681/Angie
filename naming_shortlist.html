@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naming Exploration &mdash; For Angie</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Dancing+Script:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #F4D8D5;
+    --blush-soft: #F9E6E3;
+    --blush-pale: #FDF4F2;
+    --rose-metallic: #D4A59A;
+    --rose-deep: #B8857A;
+    --ink: #1A1A1A;
+    --ink-soft: #3D3D3D;
+    --body-text: #4A4A4A;
+    --cream: #FAFAF8;
+    --white: #FFFFFF;
+    --warm-gray: #8A8582;
+    --divider: #E8D5D0;
+    --flag-green: #7A8B6B;
+    --flag-yellow: #C9994C;
+    --flag-red: #B8625F;
+    --score-fill: #B8857A;
+    --score-empty: #F2E2DE;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    background: var(--blush-pale);
+    color: var(--body-text);
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 8.5in;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 0.75in 0.85in 0.5in;
+    min-height: 11in;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    page-break-after: always;
+    break-after: page;
+    display: flex;
+    flex-direction: column;
+  }
+  .page > *:not(.page-header):not(.page-footer) {
+    flex-shrink: 0;
+  }
+  .page-content-spacer {
+    flex: 1;
+    min-height: 24px;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  /* COVER */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 11in;
+    padding: 1.2in 0.85in;
+    background: linear-gradient(180deg, var(--white) 0%, var(--blush-soft) 100%);
+  }  .cover-top { text-align: center; }
+  .cover-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    margin-bottom: 80px;
+    font-weight: 500;
+  }
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .cover-title em { color: var(--rose-deep); }
+  .cover-sub {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .cover-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--rose-metallic);
+    margin: 72px auto;
+  }
+  .cover-to {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: var(--rose-deep);
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  .cover-from {
+    font-family: 'Dancing Script', cursive;
+    font-size: 56px;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1;
+    margin: 4px 0 24px;
+  }
+  .cover-note {
+    max-width: 440px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+  }
+  .cover-bottom { text-align: center; margin-top: auto; padding-top: 40px; }
+  .cover-prepared {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 8px;
+  }
+  .cover-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--rose-deep);
+  }
+
+  /* PAGE CHROME */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 40px;
+  }
+  .page-header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .page-header-section {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 500;
+  }
+  .page-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    border-top: 1px solid var(--divider);
+  }
+
+  /* INTRO */
+  .intro-block h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+  .intro-block h2 em { color: var(--rose-deep); }
+  .intro-block p {
+    font-size: 14.5px;
+    color: var(--body-text);
+    margin-bottom: 16px;
+    line-height: 1.8;
+    max-width: 60ch;
+  }
+  .intro-block p strong { color: var(--ink); font-weight: 600; }
+  .intro-block p em { color: var(--rose-deep); font-style: italic; }
+
+  .how-to {
+    background: var(--blush-soft);
+    padding: 24px 28px;
+    margin-top: 24px;
+  }
+  .how-to-title {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .how-to h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .how-to p {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  .score-legend {
+    margin-top: 20px;
+    padding: 18px 22px;
+    background: var(--cream);
+    border: 1px solid var(--divider);
+  }
+  .score-legend-title {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .score-legend-rows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 24px;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .score-legend-row {
+    padding: 4px 0;
+    line-height: 1.4;
+  }
+  .score-legend-row strong { color: var(--ink); font-weight: 600; }
+
+  .registers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .register-card {
+    padding: 14px 18px;
+    background: var(--blush-pale);
+    border-left: 2px solid var(--rose-metallic);
+  }
+  .register-label {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .register-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+  .register-names {
+    font-size: 11.5px;
+    color: var(--body-text);
+    line-height: 1.5;
+  }
+
+  /* REGISTER DIVIDER */
+  .register-divider-page {
+    padding-top: 3in;
+    text-align: center;
+  }
+  .register-divider-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+  .register-divider-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 54px;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .register-divider-title em { color: var(--rose-deep); }
+  .register-divider-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--rose-deep);
+    max-width: 440px;
+    margin: 20px auto 32px;
+    line-height: 1.5;
+  }
+  .register-divider-list {
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-top: 48px;
+  }
+  .register-divider-line {
+    width: 40px;
+    height: 1px;
+    background: var(--rose-metallic);
+    margin: 36px auto;
+  }
+
+  /* === NAME PAGE: ADHD-FRIENDLY HIERARCHY === */
+
+  /* Tier 1: Name block with score card */
+  .name-hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: start;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 28px;
+  }
+  .name-roman {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--rose-deep);
+    letter-spacing: 0.35em;
+    margin-bottom: 10px;
+  }
+  .name-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .name-pronounce {
+    font-size: 12.5px;
+    color: var(--rose-deep);
+    letter-spacing: 0.08em;
+    font-style: italic;
+  }
+
+  /* Score card */
+  .score-card {
+    background: var(--cream);
+    border: 1px solid var(--divider);
+    padding: 18px 22px;
+    min-width: 190px;
+  }
+  .score-total-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 12px;
+  }
+  .score-total-label {
+    font-size: 8.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+  }
+  .score-total {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .score-total-num {
+    font-size: 28px;
+    font-weight: 400;
+  }
+  .score-total-max {
+    font-size: 14px;
+    color: var(--warm-gray);
+  }
+  .score-bar-row {
+    display: grid;
+    grid-template-columns: 62px 1fr;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7px;
+    font-size: 10px;
+  }
+  .score-bar-row:last-child { margin-bottom: 0; }
+  .score-bar-label {
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+  .score-bar-track {
+    display: flex;
+    gap: 2px;
+  }
+  .score-dot {
+    flex: 1;
+    height: 6px;
+    background: var(--score-empty);
+    border-radius: 1px;
+  }
+  .score-dot.fill { background: var(--score-fill); }
+
+  /* Tier 2: Essence line */
+  .name-essence {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--rose-deep);
+    line-height: 1.45;
+    margin-bottom: 32px;
+    max-width: 56ch;
+  }
+
+  /* Tier 3: Meaning + Fit */
+  .name-body-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 28px;
+  }
+  .name-body-label {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .name-body-col p {
+    font-size: 13.5px;
+    color: var(--body-text);
+    line-height: 1.75;
+  }
+  .name-body-col p strong { color: var(--ink); font-weight: 600; }
+  .name-body-col p em { color: var(--rose-deep); font-style: italic; }
+
+  /* Tier 4: Voice sample */
+  .name-voice {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--rose-deep);
+    line-height: 1.5;
+    padding: 18px 24px;
+    background: var(--blush-pale);
+    border-left: 2px solid var(--rose-metallic);
+    margin-bottom: 28px;
+  }
+  .name-voice::before {
+    content: 'Heard aloud';
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    font-style: normal;
+    margin-bottom: 8px;
+  }
+
+  /* Tier 5: Strengths + Watch */
+  .name-footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .name-footer-col {
+    padding: 16px 18px;
+    background: var(--cream);
+    border: 1px solid var(--divider);
+  }
+  .name-footer-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .name-footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .name-footer-col li {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    padding: 4px 0 4px 14px;
+    position: relative;
+  }
+  .name-footer-col li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--rose-metallic);
+  }
+
+  /* COMPARISON TABLE */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    font-size: 11.5px;
+  }
+  .compare-table th {
+    background: var(--blush-soft);
+    padding: 10px 8px;
+    text-align: left;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+    border-bottom: 1px solid var(--rose-metallic);
+  }
+  .compare-table th.num { text-align: center; }
+  .compare-table td {
+    padding: 11px 8px;
+    border-bottom: 1px solid var(--divider);
+    vertical-align: middle;
+    color: var(--ink);
+  }
+  .compare-table td.num {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--rose-deep);
+  }
+  .compare-table td.total {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .compare-table .name-col {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  /* DECISION */
+  .decision-block {
+    background: var(--blush-soft);
+    padding: 28px 32px;
+    margin-top: 28px;
+  }
+  .decision-question {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(184, 133, 122, 0.25);
+  }
+  .decision-question:last-child { border-bottom: none; }
+  .decision-question h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--rose-deep);
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .decision-question p {
+    font-size: 12.5px;
+    color: var(--body-text);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CLOSING */
+  .closing { text-align: center; padding-top: 2.5in; }
+  .closing-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+  .closing-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--rose-deep);
+    margin: 16px auto 48px;
+    max-width: 420px;
+    line-height: 1.6;
+  }
+  .closing-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--rose-metallic);
+    margin: 36px auto;
+  }
+  .closing-script {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    color: var(--ink);
+    margin-top: 32px;
+  }
+  .closing-meta {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-top: 24px;
+  }
+
+  /* TABLE OF CONTENTS */
+  .toc-intro {
+    margin-bottom: 28px;
+  }
+  .toc-intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .toc-intro h2 em { color: var(--rose-deep); }
+  .toc-intro p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+
+  .toc-section {
+    margin-bottom: 22px;
+  }
+  .toc-section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .toc-section-label {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    font-weight: 600;
+  }
+  .toc-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .toc-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .toc-item {
+    display: grid;
+    grid-template-columns: 30px 1fr auto 40px;
+    align-items: baseline;
+    gap: 12px;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.15s ease;
+    border-radius: 2px;
+  }
+  .toc-item:hover {
+    background: var(--blush-pale);
+  }
+  .toc-item-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--rose-deep);
+    letter-spacing: 0.15em;
+  }
+  .toc-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .toc-item-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--warm-gray);
+    letter-spacing: 0.08em;
+  }
+  .toc-item-score strong {
+    color: var(--rose-deep);
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .toc-item-page {
+    font-size: 10px;
+    color: var(--warm-gray);
+    letter-spacing: 0.15em;
+    text-align: right;
+    font-weight: 500;
+  }
+  .toc-item-structural {
+    grid-template-columns: 30px 1fr 40px;
+  }
+  .toc-item-structural .toc-item-name {
+    font-size: 16px;
+    color: var(--rose-deep);
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { box-shadow: none; margin: 0; padding: 0.6in 0.75in 0.4in; min-height: auto; page-break-after: always; break-after: page; display: flex; flex-direction: column; }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+    .cover { padding: 1.2in 0.75in; display: flex; }
+    .name-hero, .name-body-grid, .name-voice, .name-footer-grid, .score-card, .decision-block, .how-to, .score-legend, .register-card, .toc-item { page-break-inside: avoid; break-inside: avoid; }
+    .page-footer { margin-top: auto; }
+  }
+  @page { size: letter; margin: 0.4in; }
+
+  @media screen and (max-width: 900px) {
+    .page { padding: 0.5in 0.4in; }
+    .registers, .name-body-grid, .name-footer-grid, .score-legend-rows { grid-template-columns: 1fr; }
+    .name-hero { grid-template-columns: 1fr; gap: 20px; }
+    .name-display { font-size: 44px; }
+    .compare-table { font-size: 11px; }
+    .compare-table th, .compare-table td { padding: 8px 5px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="cover-eyebrow">Naming Exploration &middot; Ten to Sit With</div>
+    <h1 class="cover-title">Ten names<br>for a <em>curated box</em><br>for women.</h1>
+    <div class="cover-sub">Your brand. Your choice.</div>
+  </div>
+  <div>
+    <div class="cover-divider"></div>
+    <div class="cover-to">Prepared for</div>
+    <div class="cover-from">Angie</div>
+    <div class="cover-note">
+      Ten names across four registers. Each one scored. Each one explained. An honest map so you can see where your gut lands.
+    </div>
+    <div class="cover-divider"></div>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-prepared">Prepared by Revised Strategies</div>
+    <div class="cover-date">April 2026</div>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="page toc-page" id="toc">
+  <div class="page-header">
+    <div class="page-header-title">Naming Exploration</div>
+    <div class="page-header-section">Contents</div>
+  </div>
+
+  <div class="toc-intro">
+    <h2>The <em>map</em>.</h2>
+    <p>Jump to any name or section. Tap on screen, or flip through on paper.</p>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-header">
+      <div class="toc-section-label">Orientation</div>
+    </div>
+    <div class="toc-items">
+      <a class="toc-item toc-item-structural" href="#intro">
+        <span class="toc-item-num">&mdash;</span>
+        <span class="toc-item-name">How to read this</span>
+        <span class="toc-item-page">01</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-header">
+      <div class="toc-section-label">Register I</div>
+      <div class="toc-section-title">Soft &amp; Textural</div>
+    </div>
+    <div class="toc-items">
+      <a class="toc-item" href="#duskmere">
+        <span class="toc-item-num">I</span>
+        <span class="toc-item-name">Duskmere</span>
+        <span class="toc-item-score">Score <strong>19</strong>/20</span>
+        <span class="toc-item-page">02</span>
+      </a>
+      <a class="toc-item" href="#suedery">
+        <span class="toc-item-num">II</span>
+        <span class="toc-item-name">Suedery</span>
+        <span class="toc-item-score">Score <strong>16</strong>/20</span>
+        <span class="toc-item-page">03</span>
+      </a>
+      <a class="toc-item" href="#seraline">
+        <span class="toc-item-num">III</span>
+        <span class="toc-item-name">Seraline</span>
+        <span class="toc-item-score">Score <strong>16</strong>/20</span>
+        <span class="toc-item-page">04</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-header">
+      <div class="toc-section-label">Register II</div>
+      <div class="toc-section-title">Sacred &amp; Celestial</div>
+    </div>
+    <div class="toc-items">
+      <a class="toc-item" href="#vespera">
+        <span class="toc-item-num">IV</span>
+        <span class="toc-item-name">Vespera</span>
+        <span class="toc-item-score">Score <strong>14</strong>/20</span>
+        <span class="toc-item-page">05</span>
+      </a>
+      <a class="toc-item" href="#vesper">
+        <span class="toc-item-num">V</span>
+        <span class="toc-item-name">Vesper</span>
+        <span class="toc-item-score">Score <strong>12</strong>/20</span>
+        <span class="toc-item-page">06</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-header">
+      <div class="toc-section-label">Register III</div>
+      <div class="toc-section-title">Intimate &amp; Letter-like</div>
+    </div>
+    <div class="toc-items">
+      <a class="toc-item" href="#hers-truly">
+        <span class="toc-item-num">VI</span>
+        <span class="toc-item-name">Hers, Truly</span>
+        <span class="toc-item-score">Score <strong>18</strong>/20</span>
+        <span class="toc-item-page">07</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-header">
+      <div class="toc-section-label">Register IV</div>
+      <div class="toc-section-title">Bold &amp; Botanical</div>
+    </div>
+    <div class="toc-items">
+      <a class="toc-item" href="#reliqua">
+        <span class="toc-item-num">VII</span>
+        <span class="toc-item-name">Reliqua</span>
+        <span class="toc-item-score">Score <strong>15</strong>/20</span>
+        <span class="toc-item-page">08</span>
+      </a>
+      <a class="toc-item" href="#madder-bloom">
+        <span class="toc-item-num">VIII</span>
+        <span class="toc-item-name">Madder Bloom</span>
+        <span class="toc-item-score">Score <strong>16</strong>/20</span>
+        <span class="toc-item-page">09</span>
+      </a>
+      <a class="toc-item" href="#crimson-ivy">
+        <span class="toc-item-num">IX</span>
+        <span class="toc-item-name">Crimson Ivy</span>
+        <span class="toc-item-score">Score <strong>17</strong>/20</span>
+        <span class="toc-item-page">10</span>
+      </a>
+      <a class="toc-item" href="#carmine">
+        <span class="toc-item-num">X</span>
+        <span class="toc-item-name">Carmine</span>
+        <span class="toc-item-score">Score <strong>15</strong>/20</span>
+        <span class="toc-item-page">11</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-section-header">
+      <div class="toc-section-label">Synthesis</div>
+    </div>
+    <div class="toc-items">
+      <a class="toc-item toc-item-structural" href="#ranked">
+        <span class="toc-item-num">&mdash;</span>
+        <span class="toc-item-name">The ten, ranked</span>
+        <span class="toc-item-page">12</span>
+      </a>
+      <a class="toc-item toc-item-structural" href="#decision">
+        <span class="toc-item-num">&mdash;</span>
+        <span class="toc-item-name">How to choose</span>
+        <span class="toc-item-page">13</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>Contents</span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="page" id="intro">
+  <div class="page-header">
+    <div class="page-header-title">Naming Exploration</div>
+    <div class="page-header-section">How to read this</div>
+  </div>
+
+  <div class="intro-block">
+    <h2>A name is <em>an invitation</em>.</h2>
+    <p>It gets spoken aloud to a friend, hashtagged on unboxings, whispered on the inside of a box lid. It has to hold all of that.</p>
+    <p>These ten names span four feelings. Each is <strong>scored on four dimensions</strong> &mdash; availability, scalability, memorability, brand fit &mdash; out of 20 total. The scores are a professional anchor, not a verdict. Your gut can override anything.</p>
+  </div>
+
+  <div class="how-to">
+    <div class="how-to-title">How to read each name</div>
+    <h3>One page. One name. Top to bottom.</h3>
+    <p><strong>The score</strong> tells you where it lands professionally. <strong>The essence line</strong> is the name in one sentence. <strong>Meaning &amp; fit</strong> explain the why. <strong>Heard aloud</strong> shows how it reads in the world. <strong>Strengths &amp; watch-outs</strong> are the tradeoffs.</p>
+  </div>
+
+  <div class="score-legend">
+    <div class="score-legend-title">The four dimensions, explained</div>
+    <div class="score-legend-rows">
+      <div class="score-legend-row"><strong>Availability</strong> &mdash; how clean is the trademark, domain, handle landscape</div>
+      <div class="score-legend-row"><strong>Scalability</strong> &mdash; can the name stretch from box to full brand house</div>
+      <div class="score-legend-row"><strong>Memorability</strong> &mdash; how sticky after one hearing; retellable</div>
+      <div class="score-legend-row"><strong>Brand fit</strong> &mdash; how well it holds the velvet-ritual-cycle feeling</div>
+    </div>
+  </div>
+
+  <div class="registers">
+    <div class="register-card">
+      <div class="register-label">Register I</div>
+      <div class="register-title">Soft &amp; textural</div>
+      <div class="register-names">Duskmere &middot; Suedery &middot; Seraline</div>
+    </div>
+    <div class="register-card">
+      <div class="register-label">Register II</div>
+      <div class="register-title">Sacred &amp; celestial</div>
+      <div class="register-names">Vespera &middot; Vesper</div>
+    </div>
+    <div class="register-card">
+      <div class="register-label">Register III</div>
+      <div class="register-title">Intimate &amp; letter-like</div>
+      <div class="register-names">Hers, Truly</div>
+    </div>
+    <div class="register-card">
+      <div class="register-label">Register IV</div>
+      <div class="register-title">Bold &amp; botanical</div>
+      <div class="register-names">Reliqua &middot; Madder Bloom &middot; Crimson Ivy &middot; Carmine</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>01</span>
+  </div>
+</div>
+
+<!-- REGISTER I DIVIDER -->
+<div class="page cover">
+  <div class="register-divider-page">
+    <div class="register-divider-eyebrow">Register I</div>
+    <div class="register-divider-title">Soft &amp; <em>Textural</em></div>
+    <div class="register-divider-line"></div>
+    <div class="register-divider-sub">Names that carry the hush. A mood you step into.</div>
+    <div class="register-divider-list">Duskmere &middot; Suedery &middot; Seraline</div>
+  </div>
+</div>
+
+<!-- DUSKMERE -->
+<div class="page" id="duskmere">
+  <div class="page-header">
+    <div class="page-header-title">Register I &middot; Soft &amp; Textural</div>
+    <div class="page-header-section">I &middot; Duskmere</div>
+  </div>
+
+  <div class="name-hero">
+    <div>
+      <div class="name-roman">I</div>
+      <div class="name-display">Duskmere</div>
+      <div class="name-pronounce">dusk &middot; meer</div>
+    </div>
+    <div class="score-card">
+      <div class="score-total-row">
+        <div class="score-total-label">Score</div>
+        <div class="score-total"><span class="score-total-num">19</span><span class="score-total-max">/20</span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Avail</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Scale</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Memory</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Fit</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-essence">A still pool at evening. A place to step into when the world has gone quiet.</div>
+
+  <div class="name-body-grid">
+    <div>
+      <div class="name-body-label">Meaning</div>
+      <p><strong>Dusk</strong> is the soft hour between day and night. <strong>Mere</strong> is old English for a still body of water &mdash; a pool, a lake (as in Windermere).</p>
+    </div>
+    <div>
+      <div class="name-body-label">Why it fits</div>
+      <p>The name <em>is</em> the velvet temple. Held, dim, warm, water-quiet. Doesn't announce cycle &mdash; holds everything you'll ever build.</p>
+    </div>
+  </div>
+
+  <div class="name-voice">"I took myself to Duskmere this week."</div>
+
+  <div class="name-footer-grid">
+    <div class="name-footer-col">
+      <div class="name-footer-label">Strengths</div>
+      <ul>
+        <li>Wide open in trademark space</li>
+        <li>Scales from box to lifestyle brand</li>
+        <li>Old-feeling, but reads new</li>
+      </ul>
+    </div>
+    <div class="name-footer-col">
+      <div class="name-footer-label">Worth watching</div>
+      <ul>
+        <li>"-mere" may read British or fantasy at first</li>
+        <li>Needs confident branding to settle the sound</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>02</span>
+  </div>
+</div>
+
+<!-- SUEDERY -->
+<div class="page" id="suedery">
+  <div class="page-header">
+    <div class="page-header-title">Register I &middot; Soft &amp; Textural</div>
+    <div class="page-header-section">II &middot; Suedery</div>
+  </div>
+
+  <div class="name-hero">
+    <div>
+      <div class="name-roman">II</div>
+      <div class="name-display">Suedery</div>
+      <div class="name-pronounce">swayd &middot; uh-ree</div>
+    </div>
+    <div class="score-card">
+      <div class="score-total-row">
+        <div class="score-total-label">Score</div>
+        <div class="score-total"><span class="score-total-num">16</span><span class="score-total-max">/20</span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Avail</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Scale</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Memory</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Fit</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-essence">A place of softness. A workshop of gentleness you step into.</div>
+
+  <div class="name-body-grid">
+    <div>
+      <div class="name-body-label">Meaning</div>
+      <p><strong>Suede</strong> + <strong>-ery</strong> (as in perfumery, bindery, rookery). The suffix means <em>"a place where this happens."</em></p>
+    </div>
+    <div>
+      <div class="name-body-label">Why it fits</div>
+      <p>The word itself performs the brand promise &mdash; you <em>feel</em> softness reading it. Works as "The Suedery" or "Suedery &amp; Co."</p>
+    </div>
+  </div>
+
+  <div class="name-voice">"A month of gentleness, kept in The Suedery."</div>
+
+  <div class="name-footer-grid">
+    <div class="name-footer-col">
+      <div class="name-footer-label">Strengths</div>
+      <ul>
+        <li>Appears completely open</li>
+        <li>Tactile and memorable</li>
+        <li>Works across products beautifully</li>
+      </ul>
+    </div>
+    <div class="name-footer-col">
+      <div class="name-footer-label">Worth watching</div>
+      <ul>
+        <li>Leans texture-first, may read skincare more than cycle</li>
+        <li>Category needs the tagline to surface</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>03</span>
+  </div>
+</div>
+
+<!-- SERALINE -->
+<div class="page" id="seraline">
+  <div class="page-header">
+    <div class="page-header-title">Register I &middot; Soft &amp; Textural</div>
+    <div class="page-header-section">III &middot; Seraline</div>
+  </div>
+
+  <div class="name-hero">
+    <div>
+      <div class="name-roman">III</div>
+      <div class="name-display">Seraline</div>
+      <div class="name-pronounce">sair &middot; uh &middot; leen</div>
+    </div>
+    <div class="score-card">
+      <div class="score-total-row">
+        <div class="score-total-label">Score</div>
+        <div class="score-total"><span class="score-total-num">16</span><span class="score-total-max">/20</span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Avail</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Scale</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Memory</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Fit</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-essence">The line of the evening. A soft thread through the dusk.</div>
+
+  <div class="name-body-grid">
+    <div>
+      <div class="name-body-label">Meaning</div>
+      <p><strong>Sera</strong> (Italian for evening) + <strong>-line</strong> (a thread, a lineage). Faint echo of <em>seraph</em> adds a sacred hush.</p>
+    </div>
+    <div>
+      <div class="name-body-label">Why it fits</div>
+      <p>Flows like water. Looks gorgeous in script. Feels like a European heritage brand quietly beloved for decades.</p>
+    </div>
+  </div>
+
+  <div class="name-voice">"She opened the Seraline box in the last hour of the day."</div>
+
+  <div class="name-footer-grid">
+    <div class="name-footer-col">
+      <div class="name-footer-label">Strengths</div>
+      <ul>
+        <li>Sophisticated sound</li>
+        <li>No direct conflicts in wellness/cycle</li>
+        <li>Easy to say and spell</li>
+      </ul>
+    </div>
+    <div class="name-footer-col">
+      <div class="name-footer-label">Worth watching</div>
+      <ul>
+        <li>Minor adjacent uses (ring, art site)</li>
+        <li>Needs formal trademark check before filing</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>04</span>
+  </div>
+</div>
+
+<!-- REGISTER II DIVIDER -->
+<div class="page cover">
+  <div class="register-divider-page">
+    <div class="register-divider-eyebrow">Register II</div>
+    <div class="register-divider-title">Sacred &amp; <em>Celestial</em></div>
+    <div class="register-divider-line"></div>
+    <div class="register-divider-sub">Names that honor the hour, the evening, the returning.</div>
+    <div class="register-divider-list">Vespera &middot; Vesper</div>
+  </div>
+</div>
+
+<!-- VESPERA -->
+<div class="page" id="vespera">
+  <div class="page-header">
+    <div class="page-header-title">Register II &middot; Sacred &amp; Celestial</div>
+    <div class="page-header-section">IV &middot; Vespera</div>
+  </div>
+
+  <div class="name-hero">
+    <div>
+      <div class="name-roman">IV</div>
+      <div class="name-display">Vespera</div>
+      <div class="name-pronounce">ves &middot; pair &middot; uh</div>
+    </div>
+    <div class="score-card">
+      <div class="score-total-row">
+        <div class="score-total-label">Score</div>
+        <div class="score-total"><span class="score-total-num">14</span><span class="score-total-max">/20</span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Avail</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Scale</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Memory</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Fit</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-essence">The evening herself. The hour of returning inward.</div>
+
+  <div class="name-body-grid">
+    <div>
+      <div class="name-body-label">Meaning</div>
+      <p>Latin for <strong>evening star</strong> &mdash; Venus after sunset. Root of <em>vespers</em>, the evening prayer hour. Feminine form.</p>
+    </div>
+    <div>
+      <div class="name-body-label">Why it fits</div>
+      <p>Unites cosmic and sacred. A star and a prayer in one word. Perfect for a brand that honors the cyclical.</p>
+    </div>
+  </div>
+
+  <div class="name-voice">"Vespera arrives with the evening."</div>
+
+  <div class="name-footer-grid">
+    <div class="name-footer-col">
+      <div class="name-footer-label">Strengths</div>
+      <ul>
+        <li>Gorgeous sound, layered meaning</li>
+        <li>No direct wellness conflict</li>
+        <li>Beautiful on a label</li>
+      </ul>
+    </div>
+    <div class="name-footer-col">
+      <div class="name-footer-label">Worth watching</div>
+      <ul>
+        <li>Vaonis smart telescope brand uses it</li>
+        <li>A clothing brand exists</li>
+        <li>Search and handles will be uphill</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>05</span>
+  </div>
+</div>
+
+<!-- VESPER -->
+<div class="page" id="vesper">
+  <div class="page-header">
+    <div class="page-header-title">Register II &middot; Sacred &amp; Celestial</div>
+    <div class="page-header-section">V &middot; Vesper</div>
+  </div>
+
+  <div class="name-hero">
+    <div>
+      <div class="name-roman">V</div>
+      <div class="name-display">Vesper</div>
+      <div class="name-pronounce">ves &middot; per</div>
+    </div>
+    <div class="score-card">
+      <div class="score-total-row">
+        <div class="score-total-label">Score</div>
+        <div class="score-total"><span class="score-total-num">12</span><span class="score-total-max">/20</span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Avail</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Scale</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Memory</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Fit</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span><span class="score-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-essence">The evening prayer. The moment the world softens.</div>
+
+  <div class="name-body-grid">
+    <div>
+      <div class="name-body-label">Meaning</div>
+      <p>Latin for <strong>evening</strong>. The sixth hour of daily prayer, spoken just before sundown.</p>
+    </div>
+    <div>
+      <div class="name-body-label">Why it fits</div>
+      <p>Short, luxe, sacred-coded. Exquisite on a label. Whisper of sensuality (Bond) works for the brand.</p>
+    </div>
+  </div>
+
+  <div class="name-voice">"The hour is Vesper. The ritual begins."</div>
+
+  <div class="name-footer-grid">
+    <div class="name-footer-col">
+      <div class="name-footer-label">Strengths</div>
+      <ul>
+        <li>One word, deep Latin root</li>
+        <li>Memorable sound</li>
+        <li>Strong as sub-brand or product line</li>
+      </ul>
+    </div>
+    <div class="name-footer-col">
+      <div class="name-footer-label">Worth watching</div>
+      <ul>
+        <li>Extremely crowded: cocktails, perfume, fashion, Bond</li>
+        <li>.com and handles heavily taken</li>
+        <li>Hard to own the search results</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>06</span>
+  </div>
+</div>
+
+<!-- REGISTER III DIVIDER -->
+<div class="page cover">
+  <div class="register-divider-page">
+    <div class="register-divider-eyebrow">Register III</div>
+    <div class="register-divider-title">Intimate &amp; <em>Letter-like</em></div>
+    <div class="register-divider-line"></div>
+    <div class="register-divider-sub">A love letter a woman signs to herself.</div>
+    <div class="register-divider-list">Hers, Truly</div>
+  </div>
+</div>
+
+<!-- HERS, TRULY -->
+<div class="page" id="hers-truly">
+  <div class="page-header">
+    <div class="page-header-title">Register III &middot; Intimate &amp; Letter-like</div>
+    <div class="page-header-section">VI &middot; Hers, Truly</div>
+  </div>
+
+  <div class="name-hero">
+    <div>
+      <div class="name-roman">VI</div>
+      <div class="name-display">Hers, Truly</div>
+      <div class="name-pronounce">hers &middot; troo &middot; lee</div>
+    </div>
+    <div class="score-card">
+      <div class="score-total-row">
+        <div class="score-total-label">Score</div>
+        <div class="score-total"><span class="score-total-num">18</span><span class="score-total-max">/20</span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Avail</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Scale</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Memory</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Fit</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-essence">A love letter she signs to herself.</div>
+
+  <div class="name-body-grid">
+    <div>
+      <div class="name-body-label">Meaning</div>
+      <p>A reversal of <em>"Yours, truly."</em> The box is not for someone else &mdash; it's <strong>hers</strong>. Truly. The comma is the signature.</p>
+    </div>
+    <div>
+      <div class="name-body-label">Why it fits</div>
+      <p>Captures the whole brand mechanic in two words: <em>a gift a woman gives herself</em>. Gift-ready for friends too.</p>
+    </div>
+  </div>
+
+  <div class="name-voice">"The October box is here. Hers, Truly."</div>
+
+  <div class="name-footer-grid">
+    <div class="name-footer-col">
+      <div class="name-footer-label">Strengths</div>
+      <ul>
+        <li>Warm, gift-forward, instantly understood</li>
+        <li>Appears clear in the category</li>
+        <li>The comma becomes a brand signature</li>
+      </ul>
+    </div>
+    <div class="name-footer-col">
+      <div class="name-footer-label">Worth watching</div>
+      <ul>
+        <li>Punctuation is a styling question for every touchpoint</li>
+        <li>Sweeter tone &mdash; less mysterious than others</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>07</span>
+  </div>
+</div>
+
+<!-- REGISTER IV DIVIDER -->
+<div class="page cover">
+  <div class="register-divider-page">
+    <div class="register-divider-eyebrow">Register IV</div>
+    <div class="register-divider-title">Bold &amp; <em>Botanical</em></div>
+    <div class="register-divider-line"></div>
+    <div class="register-divider-sub">Names that honor the blood and the bloom.<br>Deep color, claimed confidently.</div>
+    <div class="register-divider-list">Reliqua &middot; Madder Bloom &middot; Crimson Ivy &middot; Carmine</div>
+  </div>
+</div>
+
+<!-- RELIQUA -->
+<div class="page" id="reliqua">
+  <div class="page-header">
+    <div class="page-header-title">Register IV &middot; Bold &amp; Botanical</div>
+    <div class="page-header-section">VII &middot; Reliqua</div>
+  </div>
+
+  <div class="name-hero">
+    <div>
+      <div class="name-roman">VII</div>
+      <div class="name-display">Reliqua</div>
+      <div class="name-pronounce">reh &middot; lee &middot; kwah</div>
+    </div>
+    <div class="score-card">
+      <div class="score-total-row">
+        <div class="score-total-label">Score</div>
+        <div class="score-total"><span class="score-total-num">15</span><span class="score-total-max">/20</span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Avail</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Scale</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Memory</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Fit</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-essence">What is kept. The sacred remnant, held with care.</div>
+
+  <div class="name-body-grid">
+    <div>
+      <div class="name-body-label">Meaning</div>
+      <p>Latin for <strong>the keepsake, what remains</strong>. Root of <em>relic</em> &mdash; but softer, more intimate. A monthly ritual <em>is</em> a reliqua.</p>
+    </div>
+    <div>
+      <div class="name-body-label">Why it fits</div>
+      <p>The most conceptually rich name. Turns the box into a <em>keeping</em> &mdash; an inheritance, a lineage, a devotion.</p>
+    </div>
+  </div>
+
+  <div class="name-voice">"Every cycle, a reliqua. Something kept. Something honored."</div>
+
+  <div class="name-footer-grid">
+    <div class="name-footer-col">
+      <div class="name-footer-label">Strengths</div>
+      <ul>
+        <li>Deeply meaningful and literary</li>
+        <li>Scales beautifully across products</li>
+        <li>Rare enough to be ownable</li>
+      </ul>
+    </div>
+    <div class="name-footer-col">
+      <div class="name-footer-label">Worth watching</div>
+      <ul>
+        <li>UK bed brand "Royale Reliqua" exists (different category)</li>
+        <li>Pronunciation may need teaching</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>08</span>
+  </div>
+</div>
+
+<!-- MADDER BLOOM -->
+<div class="page" id="madder-bloom">
+  <div class="page-header">
+    <div class="page-header-title">Register IV &middot; Bold &amp; Botanical</div>
+    <div class="page-header-section">VIII &middot; Madder Bloom</div>
+  </div>
+
+  <div class="name-hero">
+    <div>
+      <div class="name-roman">VIII</div>
+      <div class="name-display">Madder Bloom</div>
+      <div class="name-pronounce">mad &middot; der &middot; bloom</div>
+    </div>
+    <div class="score-card">
+      <div class="score-total-row">
+        <div class="score-total-label">Score</div>
+        <div class="score-total"><span class="score-total-num">16</span><span class="score-total-max">/20</span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Avail</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Scale</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Memory</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Fit</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-essence">A flowering of deep red. The blood reclaimed as ancient women's craft.</div>
+
+  <div class="name-body-grid">
+    <div>
+      <div class="name-body-label">Meaning</div>
+      <p><strong>Madder</strong> is one of the oldest dye plants &mdash; the root that gave ancient women their first true deep red for cloth and craft.</p>
+    </div>
+    <div>
+      <div class="name-body-label">Why it fits</div>
+      <p>Honors the blood without clinical language. Ancient feminine craft, grown and rooted. Bold but not defiant.</p>
+    </div>
+  </div>
+
+  <div class="name-voice">"Every month, a Madder Bloom. Every month, a deepening."</div>
+
+  <div class="name-footer-grid">
+    <div class="name-footer-col">
+      <div class="name-footer-label">Strengths</div>
+      <ul>
+        <li>Ancient and new at once</li>
+        <li>Holds the "bloom" energy, grown up</li>
+        <li>Obscure enough to be ownable</li>
+      </ul>
+    </div>
+    <div class="name-footer-col">
+      <div class="name-footer-label">Worth watching</div>
+      <ul>
+        <li>"Madder" may read "angrier" on first encounter</li>
+        <li>Needs confident brand voice to settle the sound</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>09</span>
+  </div>
+</div>
+
+<!-- CRIMSON IVY -->
+<div class="page" id="crimson-ivy">
+  <div class="page-header">
+    <div class="page-header-title">Register IV &middot; Bold &amp; Botanical</div>
+    <div class="page-header-section">IX &middot; Crimson Ivy</div>
+  </div>
+
+  <div class="name-hero">
+    <div>
+      <div class="name-roman">IX</div>
+      <div class="name-display">Crimson Ivy</div>
+      <div class="name-pronounce">krim &middot; son &middot; eye &middot; vee</div>
+    </div>
+    <div class="score-card">
+      <div class="score-total-row">
+        <div class="score-total-label">Score</div>
+        <div class="score-total"><span class="score-total-num">17</span><span class="score-total-max">/20</span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Avail</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Scale</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Memory</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Fit</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-essence">The deep red that keeps climbing. The bloom that returns.</div>
+
+  <div class="name-body-grid">
+    <div>
+      <div class="name-body-label">Meaning</div>
+      <p><strong>Crimson</strong> is the deepest luxe red &mdash; velvet, pomegranate, candlelight. <strong>Ivy</strong> is evergreen devotion and persistence.</p>
+    </div>
+    <div>
+      <div class="name-body-label">Why it fits</div>
+      <p>Bold without being defiant. Claims the red of the cycle, wraps it in something that grows and endures.</p>
+    </div>
+  </div>
+
+  <div class="name-voice">"I took a moment with my Crimson Ivy box. And the month softened."</div>
+
+  <div class="name-footer-grid">
+    <div class="name-footer-col">
+      <div class="name-footer-label">Strengths</div>
+      <ul>
+        <li>Boldest name on the list</li>
+        <li>Holds color and bloom at once</li>
+        <li>Memorable two-word compound</li>
+      </ul>
+    </div>
+    <div class="name-footer-col">
+      <div class="name-footer-label">Worth watching</div>
+      <ul>
+        <li>"Crimson" is common across beauty</li>
+        <li>"Crimson Wave" is an adjacent period box</li>
+        <li>Formal trademark check needed</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>10</span>
+  </div>
+</div>
+
+<!-- CARMINE -->
+<div class="page" id="carmine">
+  <div class="page-header">
+    <div class="page-header-title">Register IV &middot; Bold &amp; Botanical</div>
+    <div class="page-header-section">X &middot; Carmine</div>
+  </div>
+
+  <div class="name-hero">
+    <div>
+      <div class="name-roman">X</div>
+      <div class="name-display">Carmine</div>
+      <div class="name-pronounce">kar &middot; myne</div>
+    </div>
+    <div class="score-card">
+      <div class="score-total-row">
+        <div class="score-total-label">Score</div>
+        <div class="score-total"><span class="score-total-num">15</span><span class="score-total-max">/20</span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Avail</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Scale</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Memory</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span></div>
+      </div>
+      <div class="score-bar-row">
+        <div class="score-bar-label">Fit</div>
+        <div class="score-bar-track"><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot fill"></span><span class="score-dot"></span><span class="score-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="name-essence">A deep pigment. An Italian woman's name. A color made human.</div>
+
+  <div class="name-body-grid">
+    <div>
+      <div class="name-body-label">Meaning</div>
+      <p><strong>Carmine</strong> is a deep red pigment from Renaissance art. Also an Italian given name. Both a color and a woman.</p>
+    </div>
+    <div>
+      <div class="name-body-label">Why it fits</div>
+      <p>One word, bold, unexpectedly feminine. Quiet confidence of a heritage beauty house (Aesop, Byredo, Rhode).</p>
+    </div>
+  </div>
+
+  <div class="name-voice">"Carmine arrives on the first day of the moon."</div>
+
+  <div class="name-footer-grid">
+    <div class="name-footer-col">
+      <div class="name-footer-label">Strengths</div>
+      <ul>
+        <li>Single word, ownable</li>
+        <li>Scales: Carmine Oil, Carmine No. 1</li>
+        <li>Color-rich but not clinical</li>
+      </ul>
+    </div>
+    <div class="name-footer-col">
+      <div class="name-footer-label">Worth watching</div>
+      <ul>
+        <li>Common Italian first name</li>
+        <li>Listed cosmetic pigment &mdash; could confuse on labels</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>11</span>
+  </div>
+</div>
+
+<!-- RANKED COMPARISON -->
+<div class="page" id="ranked">
+  <div class="page-header">
+    <div class="page-header-title">Naming Exploration</div>
+    <div class="page-header-section">The Ten, Ranked</div>
+  </div>
+
+  <div class="intro-block">
+    <h2>Ranked <em>by score</em>.</h2>
+    <p>All ten in one view, sorted high to low. The professional read &mdash; your gut can still override. Some of the strongest brands in history scored lower than competition on paper.</p>
+  </div>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th style="width:18%">Name</th>
+        <th style="width:13%">Register</th>
+        <th class="num" style="width:8%">Avail</th>
+        <th class="num" style="width:8%">Scale</th>
+        <th class="num" style="width:8%">Memory</th>
+        <th class="num" style="width:8%">Fit</th>
+        <th class="num" style="width:10%">Total</th>
+        <th style="width:27%">At its heart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="name-col">Duskmere</td><td>Soft</td><td class="num">5</td><td class="num">5</td><td class="num">4</td><td class="num">5</td><td class="total">19</td><td>A still pool at evening.</td></tr>
+      <tr><td class="name-col">Hers, Truly</td><td>Intimate</td><td class="num">5</td><td class="num">4</td><td class="num">5</td><td class="num">4</td><td class="total">18</td><td>A letter signed to oneself.</td></tr>
+      <tr><td class="name-col">Crimson Ivy</td><td>Bold</td><td class="num">4</td><td class="num">4</td><td class="num">5</td><td class="num">4</td><td class="total">17</td><td>The deep red that keeps climbing.</td></tr>
+      <tr><td class="name-col">Suedery</td><td>Soft</td><td class="num">5</td><td class="num">4</td><td class="num">3</td><td class="num">4</td><td class="total">16</td><td>A place of softness.</td></tr>
+      <tr><td class="name-col">Madder Bloom</td><td>Bold</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="total">16</td><td>A flowering of deep red.</td></tr>
+      <tr><td class="name-col">Seraline</td><td>Soft</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="total">16</td><td>The line of the evening.</td></tr>
+      <tr><td class="name-col">Reliqua</td><td>Bold</td><td class="num">3</td><td class="num">5</td><td class="num">3</td><td class="num">4</td><td class="total">15</td><td>What is kept. The sacred remnant.</td></tr>
+      <tr><td class="name-col">Carmine</td><td>Bold</td><td class="num">3</td><td class="num">5</td><td class="num">4</td><td class="num">3</td><td class="total">15</td><td>A pigment and a woman.</td></tr>
+      <tr><td class="name-col">Vespera</td><td>Sacred</td><td class="num">2</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="total">14</td><td>The evening herself.</td></tr>
+      <tr><td class="name-col">Vesper</td><td>Sacred</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td class="num">3</td><td class="total">12</td><td>The evening prayer.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>12</span>
+  </div>
+</div>
+
+<!-- DECISION -->
+<div class="page" id="decision">
+  <div class="page-header">
+    <div class="page-header-title">Naming Exploration</div>
+    <div class="page-header-section">Questions to Sit With</div>
+  </div>
+
+  <div class="intro-block">
+    <h2>How to <em>choose</em>.</h2>
+    <p>Not a formula &mdash; but five questions that help founders pick names they can live with for ten years.</p>
+  </div>
+
+  <div class="decision-block">
+    <div class="decision-question">
+      <h4>Which one made you feel something when you said it aloud?</h4>
+      <p>Names are sound before they are meaning. The one that sits well in your mouth is the one your customer will say easily too.</p>
+    </div>
+    <div class="decision-question">
+      <h4>Which one do you want to look at on a label every day for ten years?</h4>
+      <p>You'll write this name thousands of times. Pick the one still alive on the thousandth.</p>
+    </div>
+    <div class="decision-question">
+      <h4>Do you want the name to explain itself, or to become meaningful through you?</h4>
+      <p>Duskmere, Suedery, Madder Bloom, Crimson Ivy, Hers Truly do some explaining on their own. Reliqua, Seraline, Vespera, Vesper, Carmine leave more room for you to fill in.</p>
+    </div>
+    <div class="decision-question">
+      <h4>Which name is a house big enough for everything you'll build inside it?</h4>
+      <p>The box is the start. An app, an oil line, a retreat, a community all live inside one name. Which one can hold them all?</p>
+    </div>
+    <div class="decision-question">
+      <h4>Which register do you want to live in?</h4>
+      <p>Soft &amp; textural invites quietly. Sacred &amp; celestial asks her to slow down. Intimate &amp; letter-like is a love note. Bold &amp; botanical claims the space.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Naming Exploration</span>
+    <span>13</span>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="page cover">
+  <div class="closing">
+    <div class="closing-mark">Sit with them, Angie.</div>
+    <div class="closing-line">The right name doesn't ask to be chosen.<br>It quietly becomes impossible to ignore.</div>
+    <div class="closing-divider"></div>
+    <div class="closing-script">take your time</div>
+    <div class="closing-meta">
+      Prepared by Revised Strategies &middot; April 2026<br>
+      A working document &middot; All names pending formal trademark review
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
